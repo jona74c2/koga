@@ -13,6 +13,13 @@
     <nav>
         Menu: <a href="index.html">Forside</a> <a href="kontakt.html">Kontakt</a> <a href="omos.html">Om Os</a>
     </nav>
+    <nav class="menu">
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="Bycykel">Bycykler</button>
+        <button data-kategori="Elcykel">Elcykler</button>
+        <button data-kategori="Racercykel">Racercykler</button>
+        <button data-kategori="Trekking">Trekking</button>
+    </nav>
 
     <h1></h1>
 
@@ -31,6 +38,8 @@
 
     <script>
         let retter = [];
+        const filterKnapper = document.querySelectorAll("button");
+        let filter = "alle";
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
@@ -46,19 +55,37 @@
             console.log(retter);
         }
 
+        filterKnapper.forEach(knap => knap.addEventListener("click", filtrer));
+
+        function filtrer() {
+
+            //filter sættes til teksten fra den knap der blev trykket på
+            filter = this.dataset.kategori;
+            //overskriften ændres til at sige hvordan der filtreres
+            //document.querySelector(".overskrift_kategori").textContent = `${this.textContent} Cocktails`;
+            //den highlightede knap flyttes til den nye aktive kategori
+            filterKnapper.forEach(knap => knap.classList.remove("valgt"));
+            this.classList.add("valgt");
+            visIndhold();
+        }
+
         function visIndhold() {
-
+            liste.innerHTML = "";
             retter.forEach(ret => {
-                const klon = document.querySelector("template").cloneNode(true).content;
+                console.log(ret.kategorier[0]);
+                if (ret.kategorier[0] == filter || filter == "alle") {
 
-                klon.querySelector("img").src = ret.billede_hele_cyklen_1.guid;
-                klon.querySelector("h2").textContent = ret.title.rendered;
-                klon.querySelector("p").innerHTML = ret.kort_beskrivelse;
-                document.querySelector("section").appendChild(klon);
+                    const klon = document.querySelector("template").cloneNode(true).content;
 
-                document.querySelector("section").lastElementChild.addEventListener("click", () => {
-                    location.href = `detail.html?id=${ret.id}`;
-                });
+                    klon.querySelector("img").src = ret.billede_hele_cyklen_1.guid;
+                    klon.querySelector("h2").textContent = ret.title.rendered;
+                    klon.querySelector("p").innerHTML = ret.kort_beskrivelse;
+                    document.querySelector("section").appendChild(klon);
+
+                    document.querySelector("section").lastElementChild.addEventListener("click", () => {
+                        location.href = `detail.html?id=${ret.id}`;
+                    });
+                }
             })
         }
 

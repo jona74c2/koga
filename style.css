@@ -1,6 +1,6 @@
         body {
             margin: 0;
-            background: #7D370E;
+            background: white;
             font-family: "helvetica";
         }
 
@@ -44,6 +44,15 @@
             grid-gap: 2%;
             grid-template-columns: repeat(4, 1fr);
             margin: 0 auto;
+        }
+
+        .menu {
+            text-align: center;
+        }
+
+        .valgt {
+            background-color: blue;
+            color: white;
         }
 
         img {

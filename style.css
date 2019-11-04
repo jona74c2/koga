@@ -39,9 +39,6 @@
             grid-template-columns: repeat(5, 1fr);
         }
 
-        .grid_container img:hover {
-            opacity: 0;
-        }
 
         /* Cykler CSS */
 
@@ -93,7 +90,7 @@
 
         .cykler_backimage {
             position: absolute;
-            width: 23%;
+            width: 23.5%;
             z-index: -2;
         }
 

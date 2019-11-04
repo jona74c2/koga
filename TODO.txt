@@ -1,7 +1,6 @@
 ﻿Forside med splash og det hele
 Overordnet menu
 Sortering herre/dame
-Hover effekt på cykler
 Detail skal sættes op med colonner
 Footeren med maps
 Sti

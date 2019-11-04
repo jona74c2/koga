@@ -16,53 +16,6 @@
 
             <div class="images_container">
                 <img class="imageFront" src="" alt="">
-                <div class="grid_container">
-                    <div class="bike_img">
-                        <img class="imageWhole2" src="" alt="">
-                    </div>
-
-                    <div class="bike_img">
-                        <img class="imageWhole3" src="" alt="">
-
-                    </div>
-                    <div class="bike_img">
-                        <h4 class="streamer_name"></h4>
-                        <img class="nearImg1" src="" alt="">
-
-                    </div>
-                    <div class="bike_img">
-                        <h4 class="streamer_name"></h4>
-                        <img class="nearImg2" src="" alt="">
-                    </div>
-                    <div class="bike_img">
-                        <h4 class="streamer_name"></h4>
-                        <img class="nearImg3" src="" alt="">
-
-                    </div>
-
-                    <div class="bike_img">
-                        <h4 class="streamer_name"></h4>
-                        <img class="nearImg4" src="" alt="">
-
-                    </div>
-
-                    <div class="bike_img">
-                        <h4 class="streamer_name"></h4>
-                        <img class="nearImg5" src="" alt="">
-
-                    </div>
-
-                    <div class="bike_img">
-                        <h4 class="streamer_name"></h4>
-                        <img class="nearImg6" src="" alt="">
-
-                    </div>
-                    <div class="bike_img">
-                        <h4 class="streamer_name"></h4>
-                        <img class="nearImg7" src="" alt="">
-
-                    </div>
-                </div>
             </div>
 
             <h2></h2>
@@ -100,8 +53,6 @@
     function visIndhold() {
 
         document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_1.guid}`;
-        document.querySelector(".imageWhole2").src = `${retter.billede_hele_cyklen_2.guid}`;
-        document.querySelector(".imageWhole3").src = `${retter.billede_hele_cyklen_3.guid}`;
 
         /*let i;
         for (i = 0; i < 8; i++) {
@@ -112,30 +63,6 @@
             if (retter.naerbillede + i.guid) {
                 document.querySelector(".nearImg" + (i + 1)).src = `${retter.naerbillede+i.guid}`;
             }*/
-
-        if (retter.naerbillede1.guid) {
-            document.querySelector(".nearImg1").src = `${retter.naerbillede1.guid}`;
-        }
-        if (retter.naerbillede2.guid) {
-            document.querySelector(".nearImg2").src = `${retter.naerbillede2.guid}`;
-        }
-        if (retter.naerbillede3.guid) {
-            document.querySelector(".nearImg3").src = `${retter.naerbillede3.guid}`;
-        }
-        if (retter.naerbillede4.guid) {
-            document.querySelector(".nearImg4").src = `${retter.naerbillede4.guid}`;
-        }
-        if (retter.naerbillede5.guid) {
-            document.querySelector(".nearImg5").src = `${retter.naerbillede5.guid}`;
-        }
-        if (retter.naerbillede6.guid) {
-            document.querySelector(".nearImg6").src = `${retter.naerbillede6.guid}`;
-        }
-        if (retter.naerbillede7.guid) {
-            document.querySelector(".nearImg7").src = `${retter.naerbillede7.guid}`;
-        }
-
-
 
         document.querySelector("#detail h2").textContent = retter.title.rendered;
         document.querySelector("#detail p").innerHTML = retter.kort_beskrivelse;

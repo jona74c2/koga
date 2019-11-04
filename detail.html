@@ -12,7 +12,7 @@
 <body>
     <section id="detail">
         <article class="ret">
-            <button class="close">←</button>
+
 
             <div class="images_container">
                 <img class="imageFront" src="" alt="">
@@ -78,12 +78,14 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", getJson);
+    document.querySelector(".imageFront").addEventListener("click", switchImg);
 
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
     let retter = [];
     let imagePage = [];
+    let imgCounter = 0;
 
     async function getJson() {
 
@@ -96,12 +98,6 @@
     }
 
     function visIndhold() {
-        console.log("hej 3");
-        console.log(document.querySelector(".close"));
-        document.querySelector(".close").addEventListener("click", function() {
-            console.log("Nu går vi tilbage");
-            history.back();
-        });
 
         document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_1.guid}`;
         document.querySelector(".imageWhole2").src = `${retter.billede_hele_cyklen_2.guid}`;
@@ -143,6 +139,36 @@
 
         document.querySelector("#detail h2").textContent = retter.title.rendered;
         document.querySelector("#detail p").innerHTML = retter.kort_beskrivelse;
+
+    }
+
+    function switchImg() {
+        imgCounter++;
+        console.log(imgCounter);
+
+        if (imgCounter == 1 && retter.naerbillede2.guid) {
+            document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_2.guid}`;
+        } else if (imgCounter == 2 && retter.naerbillede3.guid) {
+            document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_3.guid}`;
+        } else if (imgCounter == 3 && retter.naerbillede1.guid) {
+            document.querySelector(".imageFront").src = `${retter.naerbillede1.guid}`;
+        } else if (imgCounter == 4 && retter.naerbillede2.guid) {
+            document.querySelector(".imageFront").src = `${retter.naerbillede2.guid}`;
+        } else if (imgCounter == 5 && retter.naerbillede3.guid) {
+            document.querySelector(".imageFront").src = `${retter.naerbillede3.guid}`;
+        } else if (imgCounter == 6 && retter.naerbillede4.guid) {
+            document.querySelector(".imageFront").src = `${retter.naerbillede4.guid}`;
+        } else if (imgCounter == 7 && retter.naerbillede5.guid) {
+            document.querySelector(".imageFront").src = `${retter.naerbillede5.guid}`;
+        } else if (imgCounter == 8 && retter.naerbillede6.guid) {
+            document.querySelector(".imageFront").src = `${retter.naerbillede6.guid}`;
+        } else if (imgCounter == 9 && retter.naerbillede7.guid) {
+            document.querySelector(".imageFront").src = `${retter.naerbillede7.guid}`;
+        } else {
+            imgCounter = 0;
+            document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_1.guid}`;
+        }
+
 
     }
 

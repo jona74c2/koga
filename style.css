@@ -4,6 +4,8 @@
             font-family: "helvetica";
         }
 
+        /* Detail CSS */
+
         #detail {
             height: calc(100vh - 17px);
             width: 100vw;
@@ -29,6 +31,8 @@
             margin: 0 auto;
         }
 
+        /* For all pages */
+
         .grid_container {
             display: grid;
             grid-gap: 2%;
@@ -39,11 +43,22 @@
             opacity: 0;
         }
 
+        /* Cykler CSS */
+
         #liste {
             display: grid;
             grid-gap: 2%;
             grid-template-columns: repeat(4, 1fr);
             margin: 0 auto;
+        }
+
+
+        .cykler_image {
+            background-color: antiquewhite;
+        }
+
+        .cykler_image:hover {
+            opacity: 0;
         }
 
         .menu {
@@ -53,6 +68,48 @@
         .valgt {
             background-color: blue;
             color: white;
+        }
+
+        .backText {
+            position: absolute;
+            margin-top: 6%;
+            margin-left: 1%;
+            z-index: -1;
+            color: white;
+
+        }
+
+        .model_women,
+        .model_men {
+            position: absolute;
+            z-index: -1;
+            margin: 1%;
+            color: white;
+        }
+
+        .model_men {
+            margin-top: 2.5%;
+        }
+
+        .cykler_backimage {
+            position: absolute;
+            width: 23%;
+            z-index: -2;
+        }
+
+        .cykler_h2 {
+
+            margin-top: -5%;
+            margin-left: 2%;
+        }
+
+        .cykler_p {
+            position: absolute;
+            margin-left: 0.5%;
+            margin-top: 10%;
+            z-index: -1;
+
+            width: 20%;
         }
 
         img {

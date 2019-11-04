@@ -1,0 +1,7 @@
+Cykler json:
+http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/cykel?fbclid=IwAR04422IRzQ7hlfJX4_ZSWrJq-0qHJ-2GExG5cKRGMtnYFYLX3ddcmKyags
+
+Site:
+http://beansprout.dk/kea/2.semester/tema9/Koga/cykler.html?fbclid=IwAR1VZUCPYbnHfQj24ghFy97Q2sA4bPrHiwM8tIe9t3sHVvLK7hJuxdiRbas
+http://beansprout.dk/kea/2.semester/tema9/Koga/cykler.html
+

@@ -1,118 +1,145 @@
-        body {
-            margin: 0;
-            background: white;
-            font-family: "helvetica";
-        }
+/* Global */
 
-        /* Detail CSS */
-
-        #detail {
-            height: calc(100vh - 17px);
-            width: 100vw;
+/* For all pages */
 
 
-        }
-
-        #detail .close {
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            font-size: 2rem;
-            background-color: white;
-            border-radius: 12px;
-            border: none;
-        }
-
-        #detail .ret {
-
-            margin: 4rem auto;
-            padding: 4rem;
-            background: white;
-            margin: 0 auto;
-        }
-
-        /* For all pages */
-
-        .grid_container {
-            display: grid;
-            grid-gap: 2%;
-            grid-template-columns: repeat(5, 1fr);
-        }
 
 
-        /* Cykler CSS */
+:root {
+    --main-bg-color: white;
+    --secondary-bg-color: antiquewhite;
+    --main-accent-color: #0E7DC7;
 
-        #liste {
-            display: grid;
-            grid-gap: 2%;
-            grid-template-columns: repeat(4, 1fr);
-            margin: 0 auto;
-        }
+}
+
+button {
+    padding: 10px 40px;
+    font-weight: 600;
+    border: none;
+    background-color: var(--main-bg-color);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    color: var(--main-bg-color);
+}
+
+body {
+    margin: 0;
+    background: var(--main-bg-color);
+    font-family: "helvetica";
+}
+
+/* Detail CSS */
+
+#detail {
+    height: calc(100vh - 17px);
+    margin: 0 10%;
 
 
-        .cykler_image {
-            background-color: antiquewhite;
-        }
+}
 
-        .cykler_image:hover {
-            opacity: 0;
-        }
+#detail .close {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    font-size: 2rem;
+    background-color: var(--main-bg-color);
+    border-radius: 12px;
+    border: none;
+}
 
-        .menu {
-            text-align: center;
-        }
+#detail .ret {
 
-        .valgt {
-            background-color: blue;
-            color: white;
-        }
+    margin: 4rem auto;
+    padding: 4rem;
+    background: var(--main-bg-color);
+    margin: 0 auto;
+}
 
-        .backText {
-            position: absolute;
-            margin-top: 6%;
-            margin-left: 1%;
-            z-index: -1;
-            color: white;
+.grid_container {
+    display: grid;
+    grid-gap: 2%;
+    grid-template-columns: repeat(5, 1fr);
 
-        }
+}
 
-        .model_women,
-        .model_men {
-            position: absolute;
-            z-index: -1;
-            margin: 1%;
-            color: white;
-        }
+/* Cykler CSS */
 
-        .model_men {
-            margin-top: 2.5%;
-        }
+#liste {
+    display: grid;
+    grid-gap: 2%;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto;
+    margin: 0 10%;
+}
 
-        .cykler_backimage {
-            position: absolute;
-            width: 23.5%;
-            z-index: -2;
-        }
 
-        .cykler_h2 {
+.cykler_image {
+    background-color: var(--secondary-bg-color);
+}
 
-            margin-top: -5%;
-            margin-left: 2%;
-        }
+.cykler_image:hover {
+    opacity: 0;
+    cursor: pointer;
+}
 
-        .cykler_p {
-            position: absolute;
-            margin-left: 0.5%;
-            margin-top: 10%;
-            z-index: -1;
+.menu {
+    text-align: center;
+}
 
-            width: 20%;
-        }
+.valgt {
+    background-color: var(--main-accent-color);
+    color: var(--main-bg-color);
+}
 
-        img {
-            width: 100%;
-        }
+.backText {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 1%;
+    z-index: -1;
+    color: var(--main-bg-color);
 
-        @media screen and (min-width: 990px) {
-            width: calc(100vw - 17px);
-        }
+}
+
+.model_women,
+.model_men {
+    position: absolute;
+    z-index: -1;
+    margin: 1%;
+    color: var(--main-bg-color);
+}
+
+.model_men {
+    margin-top: 2.5%;
+}
+
+.cykler_backimage {
+    position: absolute;
+    width: 18.8%;
+    z-index: -2;
+}
+
+.cykler_h2 {
+
+    margin-top: -5%;
+    margin-left: 2%;
+}
+
+.cykler_p {
+    position: absolute;
+    margin-left: 0.5%;
+    margin-top: 8%;
+    z-index: -1;
+
+    width: 18%;
+}
+
+img {
+    width: 100%;
+}
+
+@media screen and (min-width: 990px) {
+    width: calc(100vw - 17px);
+}

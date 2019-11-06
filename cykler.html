@@ -2,150 +2,154 @@
 <html lang="DA">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 
-    <nav class="main_menu">
+	<nav class="main_menu">
 
-    </nav>
-
-
-    <video id="bg_video" autoplay muted loop>
-        <source src="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4" type="video/mp4">
-    </video>
-
-    <nav class="menu">
-        <button data-kategori="alle" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4" class="valgt">Alle</button>
-
-        <button data-kategori="Bycykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Trekking_1080pYoutube.mp4">Bycykler</button>
-
-        <button data-kategori="Elcykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4">Elcykler</button>
-
-        <button data-kategori="Racercykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Racer_1080pYoutube.mp4">Racercykler</button>
-
-        <button data-kategori="Trekking" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Trekking_1080pYoutube.mp4">Trekking</button>
-    </nav>
-
-    <h1></h1>
-
-    <template>
-        <article class="cykel">
-            <div class="cykel_bgcolor">
-                <h3 class="backText"></h3>
-                <p class="cykler_p"></p>
-                <a class="model_women"></a>
-                <a class="model_men"></a>
-                <img class="cykler_backimage" src="" alt="">
-                <img class="cykler_image" src="" alt="">
-                <h2 class="cykler_h2"></h2>
-
-            </div>
-        </article>
-    </template>
-    <h1></h1>
-    <main>
-        <section id="liste"></section>
-    </main>
-
-    <script>
-        let retter = [];
-        const filterKnapper = document.querySelectorAll("button");
-        let filter = "alle";
-        document.addEventListener("DOMContentLoaded", start);
-
-        function start() {
-            hentJson();
-            getMenu();
-        }
-
-        async function hentJson() {
-            const url = "http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/Cykel";
-            let myJson = await fetch(url);
-
-            retter = await myJson.json();
-            visIndhold();
-            console.log(retter);
-        }
-
-        async function getMenu() {
-            const thisNav = await fetch("mainnavigation.html");
-            let fetchedNav = await thisNav.text();
-            document.querySelector(".main_menu").innerHTML = fetchedNav;
-        }
-
-        filterKnapper.forEach(knap => knap.addEventListener("click", filtrer));
-
-        function filtrer() {
-
-            //filter sættes til teksten fra den knap der blev trykket på
-            filter = this.dataset.kategori;
-            document.querySelector("#bg_video").src = this.dataset.video;
-            //overskriften ændres til at sige hvordan der filtreres
-            //document.querySelector(".overskrift_kategori").textContent = `${this.textContent} Cocktails`;
-            //den highlightede knap flyttes til den nye aktive kategori
-            filterKnapper.forEach(knap => knap.classList.remove("valgt"));
-            this.classList.add("valgt");
-            visIndhold();
-        }
-
-        function visIndhold() {
-            liste.innerHTML = "";
-            retter.forEach(ret => {
-                console.log(ret.kategorier[0]);
-                if (ret.kategorier[0] == filter || filter == "alle") {
-
-                    const klon = document.querySelector("template").cloneNode(true).content;
-
-                    klon.querySelector(".backText").textContent = ret.pris;
-                    klon.querySelector(".model_women").textContent = "Damecykel";
-                    klon.querySelector(".model_men").textContent = "Herrecykel"
-                    "Damecykel";
-
-                    klon.querySelector(".cykler_backimage").src = ret.oplevelsesbillede.guid;
-
-                    //This is a try to go through different imagessizes to find the correct one. It needs to make a call for each try to check if the current imageadress is legit
-
-                    /*
-                    let k = 0;
-                    while (klon.querySelector(".cykler_image").src != "" && k <= 40) {
-                        try {
-                            console.log("Dette er forsøg nr: " + k);
-                            console.log("Dette er src: " + klon.querySelector(".cykler_image").src);
-                            klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x" + (180 + k) + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);
-                        } catch (e) {
-                            console.log(e);
-                        }
-                        k++;
-                    }*/
+	</nav>
 
 
+	<video id="bg_video" autoplay muted loop>
+		<source src="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4" type="video/mp4">
+	</video>
 
-                    //This code works for images 300x200 no matter what format. This covers 5 out of 8 of the images, which isn't good enough
+	<nav class="menu">
+		<button data-kategori="alle" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4" class="valgt">Alle</button>
+		<div class="menu_mob">
 
-                    /*klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x200" + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);*/
+			<button data-kategori="Bycykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Trekking_1080pYoutube.mp4">Bycykler</button>
 
-                    // This code set all images on the cykler page to the correct image but each image is about 10mp, which decreases loading speed a lot! Like a lot a lot
-                    klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid;
+			<button data-kategori="Elcykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4">Elcykler</button>
 
-                    klon.querySelector("h2").textContent = ret.title.rendered;
-                    klon.querySelector("p").innerHTML = ret.kort_beskrivelse;
-                    document.querySelector("section").appendChild(klon);
+			<button data-kategori="Racercykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Racer_1080pYoutube.mp4">Racercykler</button>
 
-                    document.querySelector("section").lastElementChild.addEventListener("click", () => {
-                        location.href = `detail.html?id=${ret.id}`;
-                    });
-                }
-            })
-        }
+			<button data-kategori="Trekking" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Trekking_1080pYoutube.mp4">Trekking</button>
+		</div>
+	</nav>
+	<hr>
+	<h1></h1>
 
-        /*function bikeHover(bike) {
-            console.log(bike);
-            bike.querySelector("img").src = ret.billede_hele_cyklen_3.guid;
-        }*/
-    </script>
+	<template>
+		<article class="cykel">
+			<div class="cykel_bgcolor">
+				<h3 class="backText"></h3>
+				<p class="cykler_p"></p>
+				<a class="model_women"></a>
+				<a class="model_men"></a>
+				<img class="cykler_backimage" src="" alt="">
+				<img class="cykler_image" src="" alt="">
+				<h2 class="cykler_h2"></h2>
+
+			</div>
+		</article>
+	</template>
+	<h1></h1>
+	<main>
+		<section id="liste"></section>
+	</main>
+
+	<script>
+		let retter = [];
+		const filterKnapper = document.querySelectorAll("button");
+		let filter = "alle";
+		document.addEventListener("DOMContentLoaded", start);
+
+		function start() {
+			hentJson();
+			getMenu();
+		}
+
+		async function hentJson() {
+			const url = "http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/Cykel";
+			let myJson = await fetch(url);
+
+			retter = await myJson.json();
+			visIndhold();
+			console.log(retter);
+		}
+
+		async function getMenu() {
+			const thisNav = await fetch("mainnavigation.html");
+			let fetchedNav = await thisNav.text();
+			document.querySelector(".main_menu").innerHTML = fetchedNav;
+		}
+
+		filterKnapper.forEach(knap => knap.addEventListener("click", filtrer));
+
+		function filtrer() {
+
+			//filter sættes til teksten fra den knap der blev trykket på
+			filter = this.dataset.kategori;
+			document.querySelector("#bg_video").src = this.dataset.video;
+			//overskriften ændres til at sige hvordan der filtreres
+			//document.querySelector(".overskrift_kategori").textContent = `${this.textContent} Cocktails`;
+			//den highlightede knap flyttes til den nye aktive kategori
+			filterKnapper.forEach(knap => knap.classList.remove("valgt"));
+			this.classList.add("valgt");
+			visIndhold();
+		}
+
+		function visIndhold() {
+			liste.innerHTML = "";
+			retter.forEach(ret => {
+				console.log(ret.kategorier[0]);
+				if (ret.kategorier[0] == filter || filter == "alle") {
+
+					const klon = document.querySelector("template").cloneNode(true).content;
+
+					klon.querySelector(".backText").textContent = ret.pris;
+					klon.querySelector(".model_women").textContent = "Damecykel";
+					klon.querySelector(".model_men").textContent = "Herrecykel"
+					"Damecykel";
+
+					klon.querySelector(".cykler_backimage").src = ret.oplevelsesbillede.guid;
+
+					//This is a try to go through different imagessizes to find the correct one. It needs to make a call for each try to check if the current imageadress is legit
+
+					/*
+					let k = 0;
+					while (klon.querySelector(".cykler_image").src != "" && k <= 40) {
+					    try {
+					        console.log("Dette er forsøg nr: " + k);
+					        console.log("Dette er src: " + klon.querySelector(".cykler_image").src);
+					        klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x" + (180 + k) + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);
+					    } catch (e) {
+					        console.log(e);
+					    }
+					    k++;
+					}*/
+
+
+
+					//This code works for images 300x200 no matter what format. This covers 5 out of 8 of the images, which isn't good enough
+
+					/*klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x200" + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);*/
+
+					// This code set all images on the cykler page to the correct image but each image is about 10mp, which decreases loading speed a lot! Like a lot a lot
+					klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid;
+
+					klon.querySelector("h2").textContent = ret.title.rendered;
+					klon.querySelector("p").innerHTML = ret.kort_beskrivelse;
+					document.querySelector("section").appendChild(klon);
+
+					document.querySelector("section").lastElementChild.addEventListener("click", () => {
+						location.href = `detail.html?id=${ret.id}`;
+					});
+				}
+			})
+		}
+
+		/*function bikeHover(bike) {
+		    console.log(bike);
+		    bike.querySelector("img").src = ret.billede_hele_cyklen_3.guid;
+		}*/
+	</script>
 </body></html>

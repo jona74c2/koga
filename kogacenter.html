@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+    <nav class="main_menu">
+
+    </nav>
+    <section id="detail">
+        <article class="ret">
+            <div id="figure_container">
+                <figure class="figure" id="swipe_img1"></figure>
+                <figure class="figure hide" id="swipe_img2"></figure>
+                <figure class="figure hide" id="swipe_img3"></figure>
+                <figure class="figure hide" id="swipe_img4"></figure>
+                <figure class="figure hide" id="swipe_img5"></figure>
+            </div>
+            <div id="dot_container">
+                <img class="dot" id="dot1" src="img/dot.svg" alt="">
+                <img class="dot" id="dot2" src="img/dot.svg" alt="">
+                <img class="dot" id="dot3" src="img/dot.svg" alt="">
+                <img class="dot" id="dot4" src="img/dot.svg" alt="">
+                <img class="dot" id="dot5" src="img/dot.svg" alt="">
+            </div>
+        </article>
+    </section>
+
+</body></html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", start);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+
+    let retter;
+    let content = [];
+    let contentArray=[];
+    let imgCounter = 0;
+
+    function start() {
+        getJson();
+        setDots();
+        setBlueDot(imgCounter);
+    }
+
+    async function getJson() {
+        getMenu();
+        const url = "http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/pages/66";
+        let myJson = await fetch(url);
+        retter = await myJson.json();
+
+        visIndhold();
+    }
+
+    async function getMenu() {
+        const thisNav = await fetch("mainnavigation.html");
+        let fetchedNav = await thisNav.text();
+        document.querySelector(".main_menu").innerHTML = fetchedNav;
+    }
+
+    function visIndhold() {
+
+        //document.querySelector(".imageFront").src = retter.billede_hele_cyklen_1.guid;
+        retter.content.rendered;
+        content = retter.content.rendered;
+        //document.querySelector(".ret").innerHTML = content;
+
+        //Content is an array with 6000+ entries, as each entry is a single char
+        //To solve this it is loaded into a new array, with new entries for each linebreak (\n)
+        let k = 0;
+        for(let i=0;i<content.length;i++){
+            if(content[i]=="\n"){
+                k++;
+            }
+            else{
+               contentArray[k]+=(content[i]);
+            }
+
+        }
+        //This code deletes empty entries and a few empty p tags with the length of 16
+        for(let i=0;i<contentArray.length;i++){
+            if(contentArray[i]==null || contentArray[i].length == 16){
+                contentArray.splice(i,1);
+                i--;
+            }
+            //The site has undefined instead of headlines, this code deletes these
+            else{
+                contentArray[i] = contentArray[i].replace(/undefined/g,"");
+            }
+
+        }
+        document.querySelectorAll(".figure").forEach((figure,i)=>{
+            figure.innerHTML=contentArray[i];
+        })
+
+        console.log(contentArray[0]);
+
+    }
+
+    function setBlueDot(blue) {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+            dot.src = "img/dot.svg";
+            if (blue == i) {
+                dot.src = "img/bluedot.svg";
+            }
+        })
+    }
+
+    function setDots() {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+                dot.addEventListener("click", dotSwitch);
+        })
+
+    }
+
+    function dotSwitch() {
+        imgCounter = this.id.substring(3, this.id.length) - 1;
+        switchImg();
+    }
+
+    function switchImg() {
+
+            document.querySelectorAll(".figure").forEach((figure,i) =>{
+                figure.classList="figure hide";
+                if(imgCounter == i){
+                    figure.classList = "figure";
+                }
+            })
+
+        setBlueDot(imgCounter);
+    }
+
+</script>

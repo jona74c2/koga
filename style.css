@@ -51,6 +51,30 @@ body {
 
 /* New HTML Document */
 
+/* Kogacenter CSS */
+
+#figure_container {
+    width: 100%;
+    height: 50vw;
+    overflow: hidden;
+    /*background-color: antiquewhite;*/
+}
+
+.figure figcaption {
+    margin-top: -20vw;
+    margin-left: 2%;
+    color: var(--main-bg-color);
+    /* BG color doesn't work :'( */
+    background-color: black;
+}
+
+#dot_container {
+    display: flex;
+    justify-content: center;
+}
+
+/* New HTML Document */
+
 /* Detail CSS */
 
 #detail {
@@ -186,9 +210,13 @@ body {
     width: 18%;
 }
 
+/* images is always 100% */
+
 img {
     width: 100%;
 }
+
+/* Media Qeuries */
 
 @media screen and (min-width: 990px) {
     width: calc(100vw - 17px);

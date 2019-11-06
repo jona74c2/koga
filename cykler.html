@@ -107,6 +107,9 @@
                     "Damecykel";
 
                     klon.querySelector(".cykler_backimage").src = ret.oplevelsesbillede.guid;
+
+                    //This is a try to go through different imagessizes to find the correct one. It needs to make a call for each try to check if the current imageadress is legit
+
                     /*
                     let k = 0;
                     while (klon.querySelector(".cykler_image").src != "" && k <= 40) {
@@ -122,9 +125,12 @@
 
 
 
+                    //This code works for images 300x200 no matter what format. This covers 5 out of 8 of the images, which isn't good enough
 
+                    /*klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x200" + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);*/
 
-                    klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x200" + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);
+                    // This code set all images on the cykler page to the correct image but each image is about 10mp, which decreases loading speed a lot! Like a lot a lot
+                    klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid;
 
                     klon.querySelector("h2").textContent = ret.title.rendered;
                     klon.querySelector("p").innerHTML = ret.kort_beskrivelse;

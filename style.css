@@ -31,12 +31,30 @@ body {
     font-family: "helvetica";
 }
 
+.hide {
+    display: none;
+}
+
+.col_container {
+    display: flex;
+}
+
+.col {
+    flex-grow: 1;
+    flex-basis: 1px;
+    margin: 0 30px;
+}
+
+.margin_10 {
+    margin: 0 15%;
+}
+
+/* New HTML Document */
+
 /* Detail CSS */
 
 #detail {
     height: calc(100vh - 17px);
-    margin: 0 10%;
-
 
 }
 
@@ -50,22 +68,55 @@ body {
     border: none;
 }
 
-#detail .ret {
-
-    margin: 4rem auto;
-    padding: 4rem;
-    background: var(--main-bg-color);
-    margin: 0 auto;
-}
-
 .grid_container {
     display: grid;
     grid-gap: 2%;
     grid-template-columns: repeat(5, 1fr);
-
 }
 
+#img_navigation_container {
+    display: flex;
+    justify-content: center;
+}
+
+.left_arrow,
+.right_arrow {
+    width: 25px;
+    margin: 0 40px;
+    padding: 10px;
+}
+
+.left_arrow:hover {
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+
+.right_arrow:hover {
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+
+.dot {
+    width: 14px;
+    padding: 5px;
+}
+
+.dot:hover {
+    background-color: antiquewhite;
+}
+
+.bullet {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* New HTML Document */
+
 /* Cykler CSS */
+
+#bg_video {
+    width: 100%;
+}
 
 #liste {
     display: grid;
@@ -74,7 +125,6 @@ body {
     margin: 0 auto;
     margin: 0 10%;
 }
-
 
 .cykler_image {
     background-color: var(--secondary-bg-color);

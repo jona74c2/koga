@@ -10,15 +10,25 @@
 
 <body>
 
-    <nav>
-        Menu: <a href="index.html">Forside</a> <a href="kontakt.html">Kontakt</a> <a href="omos.html">Om Os</a>
+    <nav class="main_menu">
+
     </nav>
+
+
+    <video id="bg_video" autoplay muted loop>
+        <source src="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_elcykel.mp4" type="video/mp4">
+    </video>
+
     <nav class="menu">
-        <button data-kategori="alle" class="valgt">Alle</button>
-        <button data-kategori="Bycykel">Bycykler</button>
-        <button data-kategori="Elcykel">Elcykler</button>
-        <button data-kategori="Racercykel">Racercykler</button>
-        <button data-kategori="Trekking">Trekking</button>
+        <button data-kategori="alle" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_elcykel.mp4" class="valgt">Alle</button>
+
+        <button data-kategori="Bycykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_trekking.mp4">Bycykler</button>
+
+        <button data-kategori="Elcykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_elcykel.mp4">Elcykler</button>
+
+        <button data-kategori="Racercykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_racer.mp4">Racercykler</button>
+
+        <button data-kategori="Trekking" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_trekking.mp4">Trekking</button>
     </nav>
 
     <h1></h1>
@@ -50,6 +60,7 @@
 
         function start() {
             hentJson();
+            getMenu();
         }
 
         async function hentJson() {
@@ -61,12 +72,19 @@
             console.log(retter);
         }
 
+        async function getMenu() {
+            const thisNav = await fetch("mainnavigation.html");
+            let fetchedNav = await thisNav.text();
+            document.querySelector(".main_menu").innerHTML = fetchedNav;
+        }
+
         filterKnapper.forEach(knap => knap.addEventListener("click", filtrer));
 
         function filtrer() {
 
             //filter sættes til teksten fra den knap der blev trykket på
             filter = this.dataset.kategori;
+            document.querySelector("#bg_video").src = this.dataset.video;
             //overskriften ændres til at sige hvordan der filtreres
             //document.querySelector(".overskrift_kategori").textContent = `${this.textContent} Cocktails`;
             //den highlightede knap flyttes til den nye aktive kategori
@@ -87,8 +105,26 @@
                     klon.querySelector(".model_women").textContent = "Damecykel";
                     klon.querySelector(".model_men").textContent = "Herrecykel"
                     "Damecykel";
+
                     klon.querySelector(".cykler_backimage").src = ret.oplevelsesbillede.guid;
-                    klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid;
+                    /*
+                    let k = 0;
+                    while (klon.querySelector(".cykler_image").src != "" && k <= 40) {
+                        try {
+                            console.log("Dette er forsøg nr: " + k);
+                            console.log("Dette er src: " + klon.querySelector(".cykler_image").src);
+                            klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x" + (180 + k) + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);
+                        } catch (e) {
+                            console.log(e);
+                        }
+                        k++;
+                    }*/
+
+
+
+
+
+                    klon.querySelector(".cykler_image").src = ret.billede_hele_cyklen_1.guid.substring(0, ret.billede_hele_cyklen_1.guid.length - 4) + "-300x200" + ret.billede_hele_cyklen_1.guid.substring(ret.billede_hele_cyklen_1.guid.length - 4, ret.billede_hele_cyklen_1.guid.length + 1);
 
                     klon.querySelector("h2").textContent = ret.title.rendered;
                     klon.querySelector("p").innerHTML = ret.kort_beskrivelse;
@@ -105,8 +141,5 @@
             console.log(bike);
             bike.querySelector("img").src = ret.billede_hele_cyklen_3.guid;
         }*/
-
     </script>
-</body>
-
-</html>
+</body></html>

@@ -1,7 +1,9 @@
 ﻿Forside med splash og det hele
-Overordnet menu
+Overordnet menu - skal ske gennem et html page med <ul> <li> inde i. Der skal være en tom nav på siderne hvor det skal læses ind, og så følg eksemppel fra 5/11
 Sortering herre/dame
 Detail skal sættes op med colonner
 Footeren med maps
 Sti
 Mobile
+
+Mindre billeder på cykel: http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KV657001-300x200.jpg

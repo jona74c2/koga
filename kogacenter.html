@@ -16,49 +16,103 @@
     <nav class="main_menu">
 
     </nav>
-    <section id="detail">
-        <article class="ret">
-            <div id="swipeimages_container">
-                <div class="swipeimg_container">
-                    <h4 class="headline_swipe"></h4>
-                    <img class="swipe_img" id="swipe_img1">
-                </div>
-
-                <div class="swipeimg_container hide">
-                    <h4 class="headline_swipe"></h4>
-                    <img class="swipe_img" id="swipe_img2">
-                </div>
-
-                <div class="swipeimg_container hide">
-                    <h4 class="headline_swipe"></h4>
-                    <img class="swipe_img" id="swipe_img1">
-                </div>
-
-                <div class="swipeimg_container hide">
-                    <h4 class="headline_swipe"></h4>
-                    <img class="swipe_img" id="swipe_img1">
-                </div>
-
-                <div class="swipeimg_container hide">
-                    <h4 class="headline_swipe"></h4>
-                    <img class="swipe_img" id="swipe_img1">
-                </div>
-
-
+    <section id="swiping_images_section">
+        <div id="swipeimages_container">
+            <div class="swipeimg_container">
+                <h4 class="headline_swipe"></h4>
+                <img class="swipe_img" id="swipe_img1">
             </div>
-            <div id="dot_container">
-                <img class="dot" id="dot1" src="img/dot.svg" alt="">
-                <img class="dot" id="dot2" src="img/dot.svg" alt="">
-                <img class="dot" id="dot3" src="img/dot.svg" alt="">
-                <img class="dot" id="dot4" src="img/dot.svg" alt="">
-                <img class="dot" id="dot5" src="img/dot.svg" alt="">
+
+            <div class="swipeimg_container hide">
+                <h4 class="headline_swipe"></h4>
+                <img class="swipe_img" id="swipe_img2">
             </div>
-        </article>
+
+            <div class="swipeimg_container hide">
+                <h4 class="headline_swipe"></h4>
+                <img class="swipe_img" id="swipe_img1">
+            </div>
+
+            <div class="swipeimg_container hide">
+                <h4 class="headline_swipe"></h4>
+                <img class="swipe_img" id="swipe_img1">
+            </div>
+
+            <div class="swipeimg_container hide">
+                <h4 class="headline_swipe"></h4>
+                <img class="swipe_img" id="swipe_img1">
+            </div>
+
+
+        </div>
+        <div id="dot_container">
+            <img class="dot" id="dot1" src="img/dot.svg" alt="">
+            <img class="dot" id="dot2" src="img/dot.svg" alt="">
+            <img class="dot" id="dot3" src="img/dot.svg" alt="">
+            <img class="dot" id="dot4" src="img/dot.svg" alt="">
+            <img class="dot" id="dot5" src="img/dot.svg" alt="">
+        </div>
     </section>
 
-</body>
+    <section id="bike_types">
+        <div class="h1_container">
+            <div class="line"></div>
+            <h1 class="bike_section_h1"></h1>
+            <div class="line"></div>
+        </div>
+        <div id="models_container">
+            <h2 class="models"></h2>
+            <a href="cykler.html"><img class="model_image" src="" alt="">
+                <h4 class="model_headline"></h4>
+            </a>
+            <a href="cykler.html"><img class="model_image" src="" alt="">
+                <h4 class="model_headline"></h4>
+            </a>
+            <a href="cykler.html"><img class="model_image" src="" alt="">
+                <h4 class="model_headline"></h4>
+            </a>
+            <a href="cykler.html"><img class="model_image" src="" alt="">
+                <h4 class="model_headline"></h4>
+            </a>
+            <a href="cykler.html"><img class="model_image" src="" alt="">
+                <h4 class="model_headline"></h4>
+            </a>
+        </div>
+    </section>
 
-</html>
+    <section id="mykoga">
+        <!-- this h1 section needs fixing. Make a line and put the h1 on top with background white. Should fix all -->
+        <div class="h1_container">
+            <div class="line"></div>
+            <h1 class="mykoga_section_h1"></h1>
+            <div class="line"></div>
+        </div>
+
+        <div id="top_container" class="mykoga_container">
+            <h4 class="mykoga_headline"></h4>
+            <p class="mykoga_text"></p>
+            <img class="mykoga_img" src="" alt="">
+        </div>
+        <div class="mykoga_stories_container">
+            <div id="left_container" class="mykoga_container">
+                <h4 class="mykoga_headline"></h4>
+                <p class="mykoga_text"></p>
+                <img class="mykoga_img" src="" alt="">
+            </div>
+            <div id="top_container" class="mykoga_container">
+                <h4 class="mykoga_headline"></h4>
+                <p class="mykoga_text"></p>
+                <img class="mykoga_img" src="" alt="">
+            </div>
+            <div id="top_container" class="mykoga_container">
+                <h4 class="mykoga_headline"></h4>
+                <p class="mykoga_text"></p>
+                <img class="mykoga_img" src="" alt="">
+            </div>
+        </div>
+    </section>
+
+</body></html>
 
 <script>
     document.addEventListener("DOMContentLoaded", start);
@@ -93,8 +147,6 @@
     }
 
     function visIndhold() {
-        console.log(retter);
-        console.log(retter[0].slider_billede1.guid);
         document.querySelectorAll(".swipe_img").forEach((img, i) => {
             img.src = retter[0]["slider_billede" + (i + 1)].guid;
             img.alt = retter[0]["slider_billede" + (i + 1)].post_title;
@@ -104,10 +156,40 @@
             headline.textContent = retter[0]["slider_billede" + (i + 1)].post_title;
         })
 
-           /* document.querySelectorAll(".figure").forEach((figure, i) => {
-                figure.innerHTML = contentArray[i];
-            })*/
+        document.querySelector(".bike_section_h1").textContent = retter[0].modeller_overskrift;
 
+        //An error occured, but the console log showed no missing info. So a try and catch block is used to run the code, and cathing the error.
+        document.querySelectorAll(".model_image").forEach((img,i)=>{
+            try{
+            img.src = retter[0]["model" + (i + 1)].guid;
+            img.alt = retter[0]["model" + (i + 1)].post_title;
+            }
+            catch(e){
+
+            }
+
+        })
+        //The same error occured, but the console log showed no missing info. So a try and catch block is used to run the code, and cathing the error.
+            document.querySelectorAll(".model_headline").forEach((headline,i)=>{
+                try{
+                    headline.textContent = retter[0]["model"+(i+1)].post_title;
+                }
+                catch(e){
+                }
+            })
+        // Mig og min Koga section content is being initiated
+        //Section headline first
+        document.querySelector(".mykoga_section_h1").textContent = retter[0].minkoga_overskrift;
+
+        document.querySelectorAll(".mykoga_headline").forEach((headline,i)=>{
+            headline.textContent = retter[0]["minkoga_overskrift"+(i+1)];
+        })
+        document.querySelectorAll(".mykoga_img").forEach((image,i)=>{
+            image.src = retter[0]["minkoga_billede"+(i+1)].guid;
+        })
+        document.querySelectorAll(".mykoga_text").forEach((text,i)=>{
+            text.textContent = retter[0]["minkoga_tekst"+(i+1)];
+        })
         }
 
         function setBlueDot(blue) {
@@ -142,5 +224,7 @@
 
             setBlueDot(imgCounter);
         }
+
+
 
 </script>

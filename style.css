@@ -97,6 +97,8 @@ li img {
 
 h1 {
     font-family: 'PT Sans Narrow', sans-serif;
+    color: var(--main-accent-color);
+    font-size: 32px;
 }
 
 h2 {
@@ -107,7 +109,6 @@ h2 {
 p {
     font-family: 'PT Sans', sans-serif;
     font-weight: 200;
-
 }
 
 /* New HTML Document */
@@ -132,6 +133,79 @@ p {
     margin: 0;
 }
 
+#bike_types {
+
+    margin: 0 3%;
+}
+
+#models_container {
+    display: flex;
+}
+
+.h1_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#bike_types a {
+    margin: 7px;
+    color: black;
+    text-decoration: none;
+}
+
+#bike_types h4 {
+    margin: 5px 0;
+    margin-left: 5px;
+}
+
+#bike_types a:hover {
+    color: var(--main-bg-color);
+    background-color: var(--main-accent-color);
+}
+
+.line {
+    width: 25vw;
+    border-bottom: 1px solid black;
+    height: 47px;
+    margin 0 15%;
+}
+
+.mykoga_stories_container {
+    display: flex;
+    justify-content: center;
+}
+
+.mykoga_headline,
+.mykoga_text {
+    position: absolute;
+    margin: 3%;
+    color: var(--main-bg-color);
+    padding: 15px;
+    width: 282px;
+
+}
+
+.mykoga_text {
+    background-color: hsla(328, 0%, 44%, 0.57);
+    z-index: 1;
+    margin-top: 200px;
+}
+
+.mykoga_img {
+    position: relative;
+    z-index: 1;
+}
+
+.mykoga_img:hover {
+    z-index: 0;
+}
+
+.mykoga_headline {
+    margin-top: 9.5%;
+    background-color: none;
+    z-index: 2;
+}
+
 /*
 .figure figcaption {
     margin-top: -20vw;
@@ -139,10 +213,10 @@ p {
     color: var(--main-bg-color);
     font-size: 20px;
     /* BG color doesn't work :'( */
-background-color: black;
-}
+/*background-color: black;
+}*/
 
-/*
+
 
 #dot_container {
     display: flex;

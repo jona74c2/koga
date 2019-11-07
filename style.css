@@ -52,21 +52,28 @@ ul {
     margin: 0;
     margin-bottom: -5px;
 
+    display: flex;
+
+
 }
 
 li {
     display: inline-block;
+    margin-top: 32px;
 }
 
-.main_menu {
-    display: flex;
-    align-items: center;
+li img {
+    margin-top: -32px;
+    width: 20%;
 }
+
+.main_menu {}
 
 .menu_item {
     padding: 10px 40px;
     color: black;
     text-decoration: none;
+    margin-left: -340px;
 
 
 }
@@ -76,6 +83,7 @@ li {
     background-color: var(--main-accent-color);
 }
 
+/*
 .logo a {
     width: 20%;
 }
@@ -83,7 +91,7 @@ li {
 .logo_img {
     width: 20%;
 
-}
+}*/
 
 /* Text-styling/fonts */
 
@@ -111,6 +119,12 @@ p {
     height: 50vw;
     overflow: hidden;
     /*background-color: antiquewhite;*/
+}
+
+.headline_swipe {
+    position: absolute;
+    color: var(--main-bg-color);
+    margin: 7%;
 }
 
 .swipe_img {

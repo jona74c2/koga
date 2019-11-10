@@ -35,7 +35,9 @@ body {
     display: none;
 }
 
-.col_container {}
+.col_container {
+    display: flex;
+}
 
 .col {
     flex-grow: 1;
@@ -269,6 +271,11 @@ p {
     background-color: antiquewhite;
 }
 
+#bullets {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
 .bullet {
     padding-left: 40px;
     padding-right: 40px;
@@ -300,7 +307,9 @@ p {
 }
 
 .menu {
+    margin-top: 30px;
     text-align: center;
+    width: 100wv;
 }
 
 .valgt {
@@ -372,6 +381,7 @@ img {
         grid-template-columns: repeat(1, 1fr);
         margin: 0 auto;
         margin: 0 10%;
+
     }
 
     .cykler_backimage {

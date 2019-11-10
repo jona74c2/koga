@@ -17,7 +17,7 @@
 
     </nav>
     <section id="detail">
-        <article class="ret">
+        <article class="bike">
 
             <div class="margin_10">
                 <div class="images_container">
@@ -56,20 +56,19 @@
                     </div>
 
                 </div>
-                <img class="adventure_img" src="" alt="">
             </div>
+            <img class="adventure_img" src="" alt="">
 
-            <div class="margin_10">
+
+            <div class="margin_10" id="bullets">
                 <h3>Yderligere Specifikationer</h3>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
-                <p class="bullet"></p>
+                <section id="bullet_section"></section>
+                <template>
+                    <article>
+                        <p class="bullet"></p>
+                    </article>
+                </template>
+
             </div>
         </article>
     </section>
@@ -149,12 +148,30 @@
 
         document.querySelector(".adventure_img").src = retter.oplevelsesbillede.guid;
 
-
+        //Da det varierer hvor mange bulletpoints der er til hver model, indsættes disse dynamisk. Det er en template der indeholder et p tag, og så længe at json filen indeholder flere bulletpoints, så indættes der flere med den tilhørende tekst.
+        let j = 1;
+        //Så længe at der er findes flere bullets så loopes der
+        while (retter["bulletpoints_fordel_" + j] != null) {
+            //console.log("While loop kører!");
+            //Så længe at bulletpointens tekst ikke er tom så indsættes den
+            if (retter["bulletpoints_fordel_" + j] != "") {
+                //Her oprettes en bullet, på samme måde som der oprettes cykler. Templaten klones og dens p tag får teksten fra json filen
+                const clone = document.querySelector("template").cloneNode(true).content;
+                clone.querySelector("p").textContent = retter["bulletpoints_fordel_" + j];
+                //klonen bliver indsat i bullet section og counteren j tæller op
+                document.querySelector("#bullet_section").appendChild(clone);
+            }
+            j++;
+        }
+        /*
         document.querySelectorAll(".bullet").forEach((bullet, i) => {
             if (retter["bulletpoints_fordel_" + i] != "") {
                 bullet.textContent = retter["bulletpoints_fordel_" + i];
             }
+            console.log(retter["bulletpoints_fordel_" + i]);
+            console.log(retter["bulletpoints_fordel_" + 13]);
         })
+        */
 
         setDots();
     }

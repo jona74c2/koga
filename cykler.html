@@ -22,9 +22,9 @@
     </video>
 
     <nav class="menu">
-        <button data-kategori="alle" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4" class="valgt">Alle</button>
-        <div class="menu_mob">
 
+        <div class="menu_mob">
+            <button data-kategori="alle" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4" class="valgt">Alle</button>
             <button data-kategori="Bycykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Trekking_1080pYoutube.mp4">Bycykler</button>
 
             <button data-kategori="Elcykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA_Preview_Elcykel_1080pYoutube.mp4">Elcykler</button>
@@ -70,6 +70,7 @@
         function start() {
             getJson();
             getMenu();
+            //Her laves et tjek om der er noget med i urlen. Hvis der er, så kaldes filter på den modeltype fra start
             if (id != null) {
                 filterButtons.forEach(knap => {
                     if (knap.dataset.kategori == id) {
@@ -101,17 +102,6 @@
             filter(this);
         }));
 
-        /*function filter() {
-            //filtersættes til teksten fra den knap der blev trykket på
-            filterString = this.dataset.kategori;
-            document.querySelector("#bg_video").src = this.dataset.video;
-            //overskriften ændres til at sige hvordan der filtreres
-            //document.querySelector(".overskrift_kategori").textContent = `${this.textContent} Cocktails`;
-            //den highlightede knap flyttes til den nye aktive kategori
-            filterButtons.forEach(knap => knap.classList.remove("valgt"));
-            this.classList.add("valgt");
-            showContent();
-        }*/
 
         function filter(button) {
             //filtersættes til teksten fra den knap der blev trykket på

@@ -240,9 +240,23 @@ p {
     grid-template-columns: repeat(5, 1fr);
 }
 
+.images_container {
+    height: 40vw;
+    width: 100%;
+    overflow: hidden;
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+}
+
 #img_navigation_container {
     display: flex;
     justify-content: center;
+}
+
+#dot_section {
+    display: flex;
+    margin-top: 20px;
 }
 
 .left_arrow,

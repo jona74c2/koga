@@ -202,8 +202,12 @@ p {
     z-index: 0;
 }
 
+.mykoga_text:hover {
+    z-index: 2;
+}
+
 .mykoga_headline {
-    margin-top: 160px;
+    margin-top: 140px;
     background-color: none;
     z-index: 2;
 }
@@ -283,6 +287,11 @@ p {
 
 .dot:hover {
     background-color: antiquewhite;
+}
+
+#bikeinfo_short {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 #bullets {

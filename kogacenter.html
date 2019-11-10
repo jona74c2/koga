@@ -19,27 +19,27 @@
     <section id="swiping_images_section">
         <div id="swipeimages_container">
             <div class="swipeimg_container">
-                <h4 class="headline_swipe"></h4>
+                <h2 class="headline_swipe"></h2>
                 <img class="swipe_img" id="swipe_img1">
             </div>
 
             <div class="swipeimg_container hide">
-                <h4 class="headline_swipe"></h4>
+                <h2 class="headline_swipe"></h2>
                 <img class="swipe_img" id="swipe_img2">
             </div>
 
             <div class="swipeimg_container hide">
-                <h4 class="headline_swipe"></h4>
+                <h2 class="headline_swipe"></h2>
                 <img class="swipe_img" id="swipe_img1">
             </div>
 
             <div class="swipeimg_container hide">
-                <h4 class="headline_swipe"></h4>
+                <h2 class="headline_swipe"></h2>
                 <img class="swipe_img" id="swipe_img1">
             </div>
 
             <div class="swipeimg_container hide">
-                <h4 class="headline_swipe"></h4>
+                <h2 class="headline_swipe"></h2>
                 <img class="swipe_img" id="swipe_img1">
             </div>
 
@@ -87,30 +87,32 @@
         </div>
 
         <div id="top_container" class="mykoga_container">
-            <h4 class="mykoga_headline"></h4>
+            <h2 class="mykoga_headline"></h2>
             <p class="mykoga_text"></p>
             <img class="mykoga_img" src="" alt="">
         </div>
         <div class="mykoga_stories_container">
             <div id="left_container" class="mykoga_container">
-                <h4 class="mykoga_headline"></h4>
+                <h2 class="mykoga_headline"></h2>
                 <p class="mykoga_text"></p>
                 <img class="mykoga_img" src="" alt="">
             </div>
             <div id="top_container" class="mykoga_container">
-                <h4 class="mykoga_headline"></h4>
+                <h2 class="mykoga_headline"></h2>
                 <p class="mykoga_text"></p>
                 <img class="mykoga_img" src="" alt="">
             </div>
             <div id="top_container" class="mykoga_container">
-                <h4 class="mykoga_headline"></h4>
+                <h2 class="mykoga_headline"></h2>
                 <p class="mykoga_text"></p>
                 <img class="mykoga_img" src="" alt="">
             </div>
         </div>
     </section>
 
-</body></html>
+</body>
+
+</html>
 
 <script>
     document.addEventListener("DOMContentLoaded", start);
@@ -118,7 +120,6 @@
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
-    let retter = [];
     let content = [];
     let contentArray = [];
     let imgCounter = 0;
@@ -133,7 +134,7 @@
         getMenu();
         const url = "http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/forsiden";
         let myJson = await fetch(url);
-        retter = await myJson.json();
+        content = await myJson.json();
 
         visIndhold();
     }
@@ -146,83 +147,71 @@
 
     function visIndhold() {
         document.querySelectorAll(".swipe_img").forEach((img, i) => {
-            img.src = retter[0]["slider_billede" + (i + 1)].guid;
-            img.alt = retter[0]["slider_billede" + (i + 1)].post_title;
+            img.src = content[0]["slider_billede" + (i + 1)].guid;
+            img.alt = content[0]["slider_billede" + (i + 1)].post_title;
         })
 
         document.querySelectorAll(".headline_swipe").forEach((headline, i) => {
-            headline.textContent = retter[0]["slider_billede" + (i + 1)].post_title;
+            headline.textContent = content[0]["slider_billede" + (i + 1)].post_title;
         })
 
-        document.querySelector(".bike_section_h1").textContent = retter[0].modeller_overskrift;
+        document.querySelector(".bike_section_h1").textContent = content[0].modeller_overskrift;
 
-        //An error occured, but the console log showed no missing info. So a try and catch block is used to run the code, and cathing the error.
-        document.querySelectorAll(".model_image").forEach((img,i)=>{
-            try{
-            img.src = retter[0]["model" + (i + 1)].guid;
-            img.alt = retter[0]["model" + (i + 1)].post_title;
-            }
-            catch(e){
 
-            }
-
+        document.querySelectorAll(".model_image").forEach((img, i) => {
+            img.src = content[0]["model" + (i + 1)].guid;
+            img.alt = content[0]["model" + (i + 1)].post_title;
         })
-        //The same error occured, but the console log showed no missing info. So a try and catch block is used to run the code, and cathing the error.
-            document.querySelectorAll(".model_headline").forEach((headline,i)=>{
-                try{
-                    headline.textContent = retter[0]["model"+(i+1)].post_title;
-                }
-                catch(e){
-                }
-            })
+
+        document.querySelectorAll(".model_headline").forEach((headline, i) => {
+            headline.textContent = content[0]["model" + (i + 1)].post_title;
+        })
         // Mig og min Koga section content is being initiated
         //Section headline first
-        document.querySelector(".mykoga_section_h1").textContent = retter[0].minkoga_overskrift;
+        document.querySelector(".mykoga_section_h1").textContent = content[0].minkoga_overskrift;
 
-        document.querySelectorAll(".mykoga_headline").forEach((headline,i)=>{
-            headline.textContent = retter[0]["minkoga_overskrift"+(i+1)];
+        document.querySelectorAll(".mykoga_headline").forEach((headline, i) => {
+            headline.textContent = content[0]["minkoga_overskrift" + (i + 1)];
         })
-        document.querySelectorAll(".mykoga_img").forEach((image,i)=>{
-            image.src = retter[0]["minkoga_billede"+(i+1)].guid;
+        document.querySelectorAll(".mykoga_img").forEach((image, i) => {
+            image.src = content[0]["minkoga_billede" + (i + 1)].guid;
         })
-        document.querySelectorAll(".mykoga_text").forEach((text,i)=>{
-            text.textContent = retter[0]["minkoga_tekst"+(i+1)];
+        document.querySelectorAll(".mykoga_text").forEach((text, i) => {
+            text.textContent = content[0]["minkoga_tekst" + (i + 1)];
         })
-        }
+    }
 
-        function setBlueDot(blue) {
-            document.querySelectorAll(".dot").forEach((dot, i) => {
-                dot.src = "img/dot.svg";
-                if (blue == i) {
-                    dot.src = "img/bluedot.svg";
-                }
-            })
-        }
+    function setBlueDot(blue) {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+            dot.src = "img/dot.svg";
+            if (blue == i) {
+                dot.src = "img/bluedot.svg";
+            }
+        })
+    }
 
-        function setDots() {
-            document.querySelectorAll(".dot").forEach((dot, i) => {
-                dot.addEventListener("click", dotSwitch);
-            })
+    function setDots() {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+            dot.addEventListener("click", dotSwitch);
+        })
 
-        }
+    }
 
-        function dotSwitch() {
-            imgCounter = this.id.substring(3, this.id.length) - 1;
-            switchImg();
-        }
+    function dotSwitch() {
+        imgCounter = this.id.substring(3, this.id.length) - 1;
+        switchImg();
+    }
 
-        function switchImg() {
+    function switchImg() {
 
-            document.querySelectorAll(".swipeimg_container").forEach((img, i) => {
-                img.classList = "swipeimg_container hide";
-                if (imgCounter == i) {
-                    img.classList = "swipeimg_container";
-                }
-            })
+        document.querySelectorAll(".swipeimg_container").forEach((img, i) => {
+            img.classList = "swipeimg_container hide";
+            if (imgCounter == i) {
+                img.classList = "swipeimg_container";
+            }
+        })
 
-            setBlueDot(imgCounter);
-        }
-
-
+        setBlueDot(imgCounter);
+    }
 
 </script>

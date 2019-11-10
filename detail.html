@@ -21,40 +21,36 @@
 
             <div class="margin_10">
                 <div class="images_container">
-                    <img class="imageFront" src="" alt="">
+                    <!--<img class="imageFront" src="" alt="">-->
                 </div>
                 <div id="img_navigation_container">
                     <img class="left_arrow" src="img/arrow_left.svg" alt="">
 
-                    <img class="dot hide" id="dot1" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot2" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot3" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot4" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot5" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot6" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot7" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot8" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot9" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot10" src="img/dot.svg" alt="">
-                    <img class="dot hide" id="dot11" src="img/dot.svg" alt="">
+                    <section id="dot_section"></section>
+                    <template class="dot_template">
+                        <article>
+                            <img class="dot" src="img/dot.svg" alt="">
+                        </article>
+                    </template>
 
                     <img class="right_arrow" src="img/arrow_right.svg" alt="">
                 </div>
+                <div id="bikeinfo_short">
+                    <h2></h2>
+                    <p class="info"></p>
+                    <div class="col_container">
+                        <div class="col">
+                            <h5 class="price"></h5>
+                            <h5 class="weight"></h5>
+                            <!--<h5 class="gear"></h5>-->
 
-                <h2></h2>
-                <p class="info"></p>
-                <div class="col_container">
-                    <div class="col">
-                        <h5 class="price"></h5>
-                        <h5 class="weight"></h5>
-                        <!--<h5 class="gear"></h5>-->
 
+                        </div>
+                        <div class="col">
+                            <p class="long_description"></p>
+                        </div>
 
                     </div>
-                    <div class="col">
-                        <p class="long_description"></p>
-                    </div>
-
                 </div>
             </div>
             <img class="adventure_img" src="" alt="">
@@ -63,7 +59,7 @@
             <div class="margin_10" id="bullets">
                 <h3>Yderligere Specifikationer</h3>
                 <section id="bullet_section"></section>
-                <template>
+                <template class="bullet_template">
                     <article>
                         <p class="bullet"></p>
                     </article>
@@ -85,25 +81,24 @@
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
-    let retter = [];
+    let bike = [];
     let imagePage = [];
     let imgCounter = 0;
     let imageArray = [];
 
     function start() {
         getJson();
-        setBlueDot(imgCounter);
+
     }
 
     async function getJson() {
         getMenu();
         const url = `http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/cykel/${id}`;
         let myJson = await fetch(url);
-        retter = await myJson.json();
+        bike = await myJson.json();
 
-
-        console.log("retter", retter);
-        visIndhold();
+        console.log("bike: ", bike);
+        showContent();
     }
 
     async function getMenu() {
@@ -112,68 +107,82 @@
         document.querySelector(".main_menu").innerHTML = fetchedNav;
     }
 
-    function visIndhold() {
+    function showContent() {
 
-        document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_1.guid}`;
+        //document.querySelector(".imageFront").src = `${bike.billede_hele_cyklen_1.guid}`;
+        document.querySelector(".images_container").style.backgroundImage = `url(${bike.billede_hele_cyklen_1.guid})`;
 
-        for (i = 1; i < 4; i++) {
-            if (retter["billede_hele_cyklen_" + i].guid) {
-                imageArray.push(retter["billede_hele_cyklen_" + i].guid);
+        let i = 1;
+        //Grunden til at der her bruges while loop er så billederne sættes dynamisk, så længe at der er flere billeder, så kører loopet.
+        while (bike["billede_hele_cyklen_" + i] != null) {
+            if (bike["billede_hele_cyklen_" + i].guid) {
+                imageArray.push(bike["billede_hele_cyklen_" + i].guid);
+                const clone = document.querySelector(".dot_template").cloneNode(true).content;
+                clone.querySelector(".dot").id = "dot" + i;
+                //clone.querySelector(".dot").id = bike["bulletpoints_fordel_" + j];
+                //klonen bliver indsat i bullet section og counteren j tæller op
+                document.querySelector("#dot_section").appendChild(clone);
+
             }
+            i++;
         }
 
-        for (i = 1; i < 8; i++) { //while foran if
-            if (retter["naerbillede" + i].guid) {
-                imageArray.push(retter["naerbillede" + i].guid);
+        let k = 1;
+        while (bike["naerbillede" + k] != null) {
+            if (bike["naerbillede" + k].guid) {
+                imageArray.push(bike["naerbillede" + k].guid);
+                const clone = document.querySelector(".dot_template").cloneNode(true).content;
+                clone.querySelector(".dot").id = "dot" + (k + i - 1);
+                //klonen bliver indsat i bullet section og counteren j tæller op
+                document.querySelector("#dot_section").appendChild(clone);
             }
-
+            k++;
         }
 
-        /*let i;
-        for (i = 0; i < 8; i++) {
-            console.log(retter.
-                "naerbillede" + i.guid);
-            console.log(`${retter.naerbillede+i.guid}`);
-            console.log(".nearImg" + (i + 1));
-            if (retter.naerbillede + i.guid) {
-                document.querySelector(".nearImg" + (i + 1)).src = `${retter.naerbillede+i.guid}`;
-            }*/
+        //Nu hvor alle dots er initialieret, så sættes den blå dot
+        setBlueDot();
 
-        document.querySelector("#detail h2").textContent = retter.title.rendered;
-        document.querySelector("#detail p").innerHTML = retter.kort_beskrivelse;
-        document.querySelector(".price").textContent = "Pris: " + retter.pris;
-        document.querySelector(".weight").textContent = "Vægt: " + retter.vaegt;
+        document.querySelector("#detail h2").textContent = bike.title.rendered;
+        document.querySelector("#detail p").innerHTML = bike.kort_beskrivelse;
+        document.querySelector(".price").textContent = "Pris: " + bike.pris;
+        document.querySelector(".weight").textContent = "Vægt: " + bike.vaegt;
 
-        document.querySelector(".long_description").textContent = retter.oplevelsesbillede.post_title;
+        document.querySelector(".long_description").textContent = bike.oplevelsesbillede.post_title;
 
-        document.querySelector(".adventure_img").src = retter.oplevelsesbillede.guid;
+        document.querySelector(".adventure_img").src = bike.oplevelsesbillede.guid;
 
         //Da det varierer hvor mange bulletpoints der er til hver model, indsættes disse dynamisk. Det er en template der indeholder et p tag, og så længe at json filen indeholder flere bulletpoints, så indættes der flere med den tilhørende tekst.
+        //Fordelen ved at det er dynamisk er, at der kan tilføjes flere bullets eller færre i pods og koden følger med uden problemer
         let j = 1;
         //Så længe at der er findes flere bullets så loopes der
-        while (retter["bulletpoints_fordel_" + j] != null) {
+        while (bike["bulletpoints_fordel_" + j] != null) {
             //console.log("While loop kører!");
             //Så længe at bulletpointens tekst ikke er tom så indsættes den
-            if (retter["bulletpoints_fordel_" + j] != "") {
+            if (bike["bulletpoints_fordel_" + j] != "") {
                 //Her oprettes en bullet, på samme måde som der oprettes cykler. Templaten klones og dens p tag får teksten fra json filen
-                const clone = document.querySelector("template").cloneNode(true).content;
-                clone.querySelector("p").textContent = retter["bulletpoints_fordel_" + j];
+                const clone = document.querySelector(".bullet_template").cloneNode(true).content;
+                clone.querySelector("p").textContent = bike["bulletpoints_fordel_" + j];
                 //klonen bliver indsat i bullet section og counteren j tæller op
                 document.querySelector("#bullet_section").appendChild(clone);
             }
             j++;
         }
-        /*
-        document.querySelectorAll(".bullet").forEach((bullet, i) => {
-            if (retter["bulletpoints_fordel_" + i] != "") {
-                bullet.textContent = retter["bulletpoints_fordel_" + i];
-            }
-            console.log(retter["bulletpoints_fordel_" + i]);
-            console.log(retter["bulletpoints_fordel_" + 13]);
-        })
-        */
 
         setDots();
+    }
+
+    //Denne function sætter en eventlistener på alle dots
+    function setDots() {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+            dot.addEventListener("click", dotSwitch);
+        })
+
+    }
+    //Når der trykkes på en dot skal tælleren sættes til dennes nummer. Nummeret ligger i dottens id, så dette trækkes ud vha. substring.
+    //Herefter kaldes switchImg
+    function dotSwitch() {
+        imgCounter = this.id.substring(3, this.id.length) - 1;
+        switchImg();
     }
 
     function switchLeft() {
@@ -185,7 +194,8 @@
         imgCounter++;
         switchImg();
     }
-
+    //Denne function tjekker om imgCounter er for stor eller for lille fx -1 og sætter værdien til den modsatte endes yderpunkt
+    //Herefter sættes billedet til det som dotten repræsenterer og denne dot gøres blå med functionene setbluedot
     function switchImg() {
 
         console.log(imgCounter);
@@ -195,31 +205,17 @@
         if (imgCounter < 0) {
             imgCounter = imageArray.length - 1;
         }
-        document.querySelector(".imageFront").src = imageArray[imgCounter];
-        setBlueDot(imgCounter);
+        document.querySelector(".images_container").style.backgroundImage = `url(${imageArray[imgCounter]})`;
+        setBlueDot();
     }
 
-    function setDots() {
-        document.querySelectorAll(".dot").forEach((dot, i) => {
-            if (i >= imageArray.length) {
 
-            } else {
-                dot.classList = "dot";
-                dot.addEventListener("click", dotSwitch);
-            }
-        })
-
-    }
-
-    function dotSwitch() {
-        imgCounter = this.id.substring(3, this.id.length) - 1;
-        switchImg();
-    }
-
-    function setBlueDot(blue) {
+    //Functionen sætter alle dots til at have billedet dot, og når dotten der har samme nummer som tælleren nåes, så sættes denne til den blå dot.
+    //Dette kunne også laves med css frem for en svg. I css'en skulle der være border-radius 50%, så det blev en rund dot, og så skulle der kaldes style herpå og ændre background color. Fordelen ved at gøre dette gennem css er at farverne nemt kan ændres.
+    function setBlueDot() {
         document.querySelectorAll(".dot").forEach((dot, i) => {
             dot.src = "img/dot.svg";
-            if (blue == i) {
+            if (imgCounter == i) {
                 dot.src = "img/bluedot.svg";
             }
         })

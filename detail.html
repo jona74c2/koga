@@ -2,208 +2,210 @@
 <html lang="">
 
 <head>
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
 
-	<nav class="main_menu">
+    <nav class="main_menu">
 
-	</nav>
-	<section id="detail">
-		<article class="ret">
+    </nav>
+    <section id="detail">
+        <article class="ret">
 
-			<div class="margin_10">
-				<div class="images_container">
-					<img class="imageFront" src="" alt="">
-				</div>
-				<div id="img_navigation_container">
-					<img class="left_arrow" src="img/arrow_left.svg" alt="">
+            <div class="margin_10">
+                <div class="images_container">
+                    <img class="imageFront" src="" alt="">
+                </div>
+                <div id="img_navigation_container">
+                    <img class="left_arrow" src="img/arrow_left.svg" alt="">
 
-					<img class="dot hide" id="dot1" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot2" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot3" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot4" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot5" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot6" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot7" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot8" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot9" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot10" src="img/dot.svg" alt="">
-					<img class="dot hide" id="dot11" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot1" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot2" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot3" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot4" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot5" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot6" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot7" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot8" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot9" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot10" src="img/dot.svg" alt="">
+                    <img class="dot hide" id="dot11" src="img/dot.svg" alt="">
 
-					<img class="right_arrow" src="img/arrow_right.svg" alt="">
-				</div>
+                    <img class="right_arrow" src="img/arrow_right.svg" alt="">
+                </div>
 
-				<h2></h2>
-				<p class="info"></p>
-				<div class="col_container">
-					<div class="col">
-						<h5 class="price"></h5>
-						<h5 class="weight"></h5>
-						<!--<h5 class="gear"></h5>-->
+                <h2></h2>
+                <p class="info"></p>
+                <div class="col_container">
+                    <div class="col">
+                        <h5 class="price"></h5>
+                        <h5 class="weight"></h5>
+                        <!--<h5 class="gear"></h5>-->
 
 
-					</div>
-					<div class="col">
-						<p class="long_description"></p>
-					</div>
+                    </div>
+                    <div class="col">
+                        <p class="long_description"></p>
+                    </div>
 
-				</div>
-				<img class="adventure_img" src="" alt="">
-			</div>
+                </div>
+                <img class="adventure_img" src="" alt="">
+            </div>
 
-			<div class="margin_10">
-				<h3>Yderligere Specifikationer</h3>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-				<p class="bullet"></p>
-			</div>
-		</article>
-	</section>
+            <div class="margin_10">
+                <h3>Yderligere Specifikationer</h3>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+                <p class="bullet"></p>
+            </div>
+        </article>
+    </section>
 
-</body></html>
+</body>
+
+</html>
 
 <script>
-	document.addEventListener("DOMContentLoaded", start);
-	document.querySelector(".right_arrow").addEventListener("click", switchRight);
-	document.querySelector(".left_arrow").addEventListener("click", switchLeft);
+    document.addEventListener("DOMContentLoaded", start);
+    document.querySelector(".right_arrow").addEventListener("click", switchRight);
+    document.querySelector(".left_arrow").addEventListener("click", switchLeft);
 
-	const urlParams = new URLSearchParams(window.location.search);
-	const id = urlParams.get("id");
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
 
-	let retter = [];
-	let imagePage = [];
-	let imgCounter = 0;
-	let imageArray = [];
+    let retter = [];
+    let imagePage = [];
+    let imgCounter = 0;
+    let imageArray = [];
 
-	function start() {
-		getJson();
-		setBlueDot(imgCounter);
-	}
+    function start() {
+        getJson();
+        setBlueDot(imgCounter);
+    }
 
-	async function getJson() {
-		getMenu();
-		const url = `http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/cykel/${id}`;
-		let myJson = await fetch(url);
-		retter = await myJson.json();
-
-
-		console.log("retter", retter);
-		visIndhold();
-	}
-
-	async function getMenu() {
-		const thisNav = await fetch("mainnavigation.html");
-		let fetchedNav = await thisNav.text();
-		document.querySelector(".main_menu").innerHTML = fetchedNav;
-	}
-
-	function visIndhold() {
-
-		document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_1.guid}`;
-
-		for (i = 1; i < 4; i++) {
-			if (retter["billede_hele_cyklen_" + i].guid) {
-				imageArray.push(retter["billede_hele_cyklen_" + i].guid);
-			}
-		}
-
-		for (i = 1; i < 8; i++) {
-			if (retter["naerbillede" + i].guid) {
-				imageArray.push(retter["naerbillede" + i].guid);
-			}
-
-		}
-
-		/*let i;
-		for (i = 0; i < 8; i++) {
-		    console.log(retter.
-		        "naerbillede" + i.guid);
-		    console.log(`${retter.naerbillede+i.guid}`);
-		    console.log(".nearImg" + (i + 1));
-		    if (retter.naerbillede + i.guid) {
-		        document.querySelector(".nearImg" + (i + 1)).src = `${retter.naerbillede+i.guid}`;
-		    }*/
-
-		document.querySelector("#detail h2").textContent = retter.title.rendered;
-		document.querySelector("#detail p").innerHTML = retter.kort_beskrivelse;
-		document.querySelector(".price").textContent = "Pris: " + retter.pris;
-		document.querySelector(".weight").textContent = "Vægt: " + retter.vaegt;
-
-		document.querySelector(".long_description").textContent = retter.oplevelsesbillede.post_title;
-
-		document.querySelector(".adventure_img").src = retter.oplevelsesbillede.guid;
+    async function getJson() {
+        getMenu();
+        const url = `http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/cykel/${id}`;
+        let myJson = await fetch(url);
+        retter = await myJson.json();
 
 
-		document.querySelectorAll(".bullet").forEach((bullet, i) => {
-			if (retter["bulletpoints_fordel_" + i] != "") {
-				bullet.textContent = retter["bulletpoints_fordel_" + i];
-			}
-		})
+        console.log("retter", retter);
+        visIndhold();
+    }
 
-		setDots();
-	}
+    async function getMenu() {
+        const thisNav = await fetch("mainnavigation.html");
+        let fetchedNav = await thisNav.text();
+        document.querySelector(".main_menu").innerHTML = fetchedNav;
+    }
 
-	function switchLeft() {
-		imgCounter--;
-		switchImg();
-	}
+    function visIndhold() {
 
-	function switchRight() {
-		imgCounter++;
-		switchImg();
-	}
+        document.querySelector(".imageFront").src = `${retter.billede_hele_cyklen_1.guid}`;
 
-	function switchImg() {
+        for (i = 1; i < 4; i++) {
+            if (retter["billede_hele_cyklen_" + i].guid) {
+                imageArray.push(retter["billede_hele_cyklen_" + i].guid);
+            }
+        }
 
-		console.log(imgCounter);
-		if (imgCounter == imageArray.length) {
-			imgCounter = 0;
-		}
-		if (imgCounter < 0) {
-			imgCounter = imageArray.length - 1;
-		}
-		document.querySelector(".imageFront").src = imageArray[imgCounter];
-		setBlueDot(imgCounter);
-	}
+        for (i = 1; i < 8; i++) { //while foran if
+            if (retter["naerbillede" + i].guid) {
+                imageArray.push(retter["naerbillede" + i].guid);
+            }
 
-	function setDots() {
-		document.querySelectorAll(".dot").forEach((dot, i) => {
-			if (i >= imageArray.length) {
+        }
 
-			} else {
-				dot.classList = "dot";
-				dot.addEventListener("click", dotSwitch);
-			}
-		})
+        /*let i;
+        for (i = 0; i < 8; i++) {
+            console.log(retter.
+                "naerbillede" + i.guid);
+            console.log(`${retter.naerbillede+i.guid}`);
+            console.log(".nearImg" + (i + 1));
+            if (retter.naerbillede + i.guid) {
+                document.querySelector(".nearImg" + (i + 1)).src = `${retter.naerbillede+i.guid}`;
+            }*/
 
-	}
+        document.querySelector("#detail h2").textContent = retter.title.rendered;
+        document.querySelector("#detail p").innerHTML = retter.kort_beskrivelse;
+        document.querySelector(".price").textContent = "Pris: " + retter.pris;
+        document.querySelector(".weight").textContent = "Vægt: " + retter.vaegt;
 
-	function dotSwitch() {
-		imgCounter = this.id.substring(3, this.id.length) - 1;
-		switchImg();
-	}
+        document.querySelector(".long_description").textContent = retter.oplevelsesbillede.post_title;
 
-	function setBlueDot(blue) {
-		document.querySelectorAll(".dot").forEach((dot, i) => {
-			dot.src = "img/dot.svg";
-			if (blue == i) {
-				dot.src = "img/bluedot.svg";
-			}
-		})
-	}
+        document.querySelector(".adventure_img").src = retter.oplevelsesbillede.guid;
+
+
+        document.querySelectorAll(".bullet").forEach((bullet, i) => {
+            if (retter["bulletpoints_fordel_" + i] != "") {
+                bullet.textContent = retter["bulletpoints_fordel_" + i];
+            }
+        })
+
+        setDots();
+    }
+
+    function switchLeft() {
+        imgCounter--;
+        switchImg();
+    }
+
+    function switchRight() {
+        imgCounter++;
+        switchImg();
+    }
+
+    function switchImg() {
+
+        console.log(imgCounter);
+        if (imgCounter == imageArray.length) {
+            imgCounter = 0;
+        }
+        if (imgCounter < 0) {
+            imgCounter = imageArray.length - 1;
+        }
+        document.querySelector(".imageFront").src = imageArray[imgCounter];
+        setBlueDot(imgCounter);
+    }
+
+    function setDots() {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+            if (i >= imageArray.length) {
+
+            } else {
+                dot.classList = "dot";
+                dot.addEventListener("click", dotSwitch);
+            }
+        })
+
+    }
+
+    function dotSwitch() {
+        imgCounter = this.id.substring(3, this.id.length) - 1;
+        switchImg();
+    }
+
+    function setBlueDot(blue) {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+            dot.src = "img/dot.svg";
+            if (blue == i) {
+                dot.src = "img/bluedot.svg";
+            }
+        })
+    }
 
 </script>

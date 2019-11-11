@@ -16,7 +16,7 @@
     <nav class="main_menu">
 
     </nav>
-    <section id="swiping_images_section">
+    <section id="swiping_images_section" class="margin_10">
         <div id="swipeimages_container">
             <div class="swipeimg_container">
                 <h2 class="headline_swipe"></h2>
@@ -86,23 +86,25 @@
             <div class="line"></div>
         </div>
 
-        <div id="top_container" class="mykoga_container">
+        <div class="mykoga_container margin_10">
+
             <h2 class="mykoga_headline"></h2>
             <p class="mykoga_text"></p>
-            <img class="mykoga_img" src="" alt="">
+            <div id="top_container"></div>
+            <!--<img class="mykoga_img" src="" alt="">-->
         </div>
-        <div class="mykoga_stories_container">
+        <div class="mykoga_stories_container margin_10">
             <div id="left_container" class="mykoga_container">
                 <h2 class="mykoga_headline"></h2>
                 <p class="mykoga_text"></p>
                 <img class="mykoga_img" src="" alt="">
             </div>
-            <div id="top_container" class="mykoga_container">
+            <div class="mykoga_container">
                 <h2 class="mykoga_headline"></h2>
                 <p class="mykoga_text"></p>
                 <img class="mykoga_img" src="" alt="">
             </div>
-            <div id="top_container" class="mykoga_container">
+            <div class="mykoga_container">
                 <h2 class="mykoga_headline"></h2>
                 <p class="mykoga_text"></p>
                 <img class="mykoga_img" src="" alt="">
@@ -166,15 +168,16 @@
         document.querySelectorAll(".model_headline").forEach((headline, i) => {
             headline.textContent = content[0]["model" + (i + 1)].post_title;
         })
-        // Mig og min Koga section content is being initiated
-        //Section headline first
+        // Mig og min Koga section indhold initieres
+        //Der startes med section overskrift
         document.querySelector(".mykoga_section_h1").textContent = content[0].minkoga_overskrift;
 
         document.querySelectorAll(".mykoga_headline").forEach((headline, i) => {
             headline.textContent = content[0]["minkoga_overskrift" + (i + 1)];
         })
+        document.querySelector("#top_container").style.backgroundImage = `url(${content[0]["minkoga_billede" + 1].guid})`;
         document.querySelectorAll(".mykoga_img").forEach((image, i) => {
-            image.src = content[0]["minkoga_billede" + (i + 1)].guid;
+            image.src = content[0]["minkoga_billede" + (i + 2)].guid;
         })
         document.querySelectorAll(".mykoga_text").forEach((text, i) => {
             text.textContent = content[0]["minkoga_tekst" + (i + 1)];

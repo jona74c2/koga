@@ -147,9 +147,15 @@
         document.querySelector(".price").textContent = "Pris: " + bike.pris;
         document.querySelector(".weight").textContent = "Vægt: " + bike.vaegt;
 
-        document.querySelector(".long_description").textContent = bike.oplevelsesbillede.post_title;
+        //Da der ikke findes oplevelsesbilleder til alle modellerne, så skal koden tage højde for at de måske mangler. Dette gøres med en if statement, der tjekker om billedet og titlen ikke er tomme
+        if (bike.oplevelsesbillede.post_title != "") {
+            document.querySelector(".long_description").textContent = bike.oplevelsesbillede.post_title;
+        }
+        if (bike.oplevelsesbillede.guid != "") {
+            document.querySelector(".adventure_img").src = bike.oplevelsesbillede.guid;
+        }
 
-        document.querySelector(".adventure_img").src = bike.oplevelsesbillede.guid;
+
 
         //Da det varierer hvor mange bulletpoints der er til hver model, indsættes disse dynamisk. Det er en template der indeholder et p tag, og så længe at json filen indeholder flere bulletpoints, så indættes der flere med den tilhørende tekst.
         //Fordelen ved at det er dynamisk er, at der kan tilføjes flere bullets eller færre i pods og koden følger med uden problemer

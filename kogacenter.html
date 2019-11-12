@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Koga Center | Bycykler Elcykler Trekking Racercykler</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -16,7 +16,17 @@
     <nav class="main_menu">
 
     </nav>
+
+    <video id="bg_video" autoplay muted loop>
+        <source src="" type="video/mp4">
+    </video>
+
     <section id="swiping_images_section" class="margin_10">
+        <div class="h1_container">
+            <div class="line"></div>
+            <h1 class="swiping_images_h1"></h1>
+            <div class="line"></div>
+        </div>
         <div id="swipeimages_container">
             <div class="swipeimg_container">
                 <h2 class="headline_swipe"></h2>
@@ -148,6 +158,9 @@
     }
 
     function visIndhold() {
+
+        document.querySelector("#bg_video").src = content[0].background_video.guid;
+        document.querySelector(".swiping_images_h1").textContent = content[0].video_headline;
         document.querySelectorAll(".swipe_img").forEach((img, i) => {
             img.src = content[0]["slider_billede" + (i + 1)].guid;
             img.alt = content[0]["slider_billede" + (i + 1)].post_title;

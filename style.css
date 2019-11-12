@@ -7,7 +7,10 @@
 
 :root {
     --main-bg-color: white;
-    --secondary-bg-color: antiquewhite;
+    --secondary-bg-color:
+        /*antiquewhite*/
+        /*#FFF9ED*/
+        #fffbf4;
     --main-accent-color: #0E7DC7;
 
 }

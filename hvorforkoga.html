@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+    <nav class="main_menu">
+
+    </nav>
+    <section id="whykoga">
+        <video id="bg_video" autoplay muted loop>
+            <source src="" type="video/mp4">
+        </video>
+        <div class="whykoga_section margin_10">
+            <div class="h1_container">
+                <div class="line"></div>
+                <h1 class="section_h1" id="swiping_section_h1"></h1>
+            </div>
+
+            <div class="whykoga_container">
+                <div class="col">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="col">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+            <div class="whykoga_container">
+                <div class="col">
+                    <img src="" alt="">
+                </div>
+                <div class="col">
+                    <h3></h3>
+                    <p></p>
+                </div>
+
+            </div>
+
+            <div class="whykoga_container">
+                <div class="col">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="col">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+</body></html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", start);
+
+    let content = [];
+
+    function start() {
+        getJson();
+
+    }
+
+    async function getJson() {
+        getMenu();
+        getFooter();
+        const url = `http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/hvorfor_koga`;
+        let myJson = await fetch(url);
+        content = await myJson.json();
+
+        showContent();
+    }
+
+    async function getMenu() {
+
+        const thisNav = await fetch("mainnavigation.html");
+        let fetchedNav = await thisNav.text();
+        document.querySelector(".main_menu").innerHTML = fetchedNav;
+    }
+
+    async function getFooter() {
+        const thisFooter = await fetch("footer.html");
+        let fetchedFooter = await thisFooter.text();
+        document.querySelector("footer").innerHTML = fetchedFooter;
+    }
+
+    function showContent() {
+        console.log(content)
+
+        document.querySelector("#bg_video").src = content[0].bg_video.guid;
+        document.querySelector(".section_h1").textContent = content[0].title.rendered;
+
+        document.querySelectorAll(".whykoga_container").forEach((ele,i)=>{
+            console.log("element: "+ele);
+            ele.querySelector("h3").textContent = content[0]["subheadline"+(i+1)];
+            console.log("healine: "+content["subheadline"+(i+1)]);
+
+            ele.querySelector("p").textContent = content[0]["paragraph"+(i+1)];
+            console.log("para: "+content["paragraph"+(i+1)]);
+            ele.querySelector("img").src = content[0]["image"+(i+1)].guid;
+            console.log("image: "+content[0]["image"+(i+1)]);
+        })
+
+    }
+
+
+
+</script>

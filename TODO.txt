@@ -1,14 +1,12 @@
 ﻿(auto swipe på forsiden)
 
-Hvorfor Koga page
 mig og min koga page
 kontakt page
 
-herre/dame skal fjernes
-hover på cykler skal ændres
+detail img med skrift
 
-
-
-maps i footeren
 Mobile og måske derimellem
 
+Problemer:
+Maps i footer
+Hover position på cykler

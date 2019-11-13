@@ -35,6 +35,13 @@
 
                     <img class="right_arrow" src="img/arrow_right.svg" alt="">
                 </div>
+                <div class="ia_links">
+                    <a href="kogacenter.html">Kogacenter</a>
+                    &#x25B8;
+                    <a href="cykler.html">Cykler</a>
+                    &#x25B8;
+                    <a id="current_bike" href=""></a>
+                </div>
                 <div id="bikeinfo_short">
                     <h2></h2>
                     <p class="info"></p>
@@ -142,6 +149,8 @@
         //Nu hvor alle dots er initialieret, så sættes den blå dot
         setBlueDot();
 
+        document.querySelector("#current_bike").textContent = bike.title.rendered;
+        document.querySelector("#current_bike").href = "detail.html?id=" + id;
         document.querySelector("#detail h2").textContent = bike.title.rendered;
         document.querySelector("#detail p").innerHTML = bike.kort_beskrivelse;
         document.querySelector(".price").textContent = "Pris: " + bike.pris;

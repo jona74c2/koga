@@ -1,9 +1,15 @@
-﻿Forside med splash og det hele
-Overordnet menu - skal ske gennem et html page med <ul> <li> inde i. Der skal være en tom nav på siderne hvor det skal læses ind, og så følg eksemppel fra 5/11
-Sortering herre/dame
-Detail skal sættes op med colonner
-Footeren med maps
-Sti
-Mobile
+﻿(auto swipe på forsiden)
 
-Mindre billeder på cykel: http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KV657001-300x200.jpg
+Hvorfor Koga page
+mig og min koga page
+kontakt page
+
+herre/dame skal fjernes
+hover på cykler skal ændres
+
+
+
+Footeren med maps
+Sti og menu dropdown
+Mobile og måske derimellem
+

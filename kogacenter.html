@@ -24,8 +24,7 @@
     <section id="swiping_images_section" class="margin_10">
         <div class="h1_container">
             <div class="line"></div>
-            <h1 class="swiping_images_h1"></h1>
-            <div class="line"></div>
+            <h1 class="section_h1" id="swiping_section_h1"></h1>
         </div>
         <div id="swipeimages_container">
             <div class="swipeimg_container">
@@ -65,10 +64,10 @@
     </section>
 
     <section id="bike_types">
-        <div class="h1_container">
+        <div class="h1_container margin_10">
             <div class="line"></div>
-            <h1 class="bike_section_h1"></h1>
-            <div class="line"></div>
+            <h1 class="section_h1" id="bike_section_h1"></h1>
+
         </div>
         <div id="models_container">
             <h2 class="models"></h2>
@@ -90,10 +89,10 @@
 
     <section id="mykoga">
         <!-- this h1 section needs fixing. Make a line and put the h1 on top with background white. Should fix all -->
-        <div class="h1_container">
+        <div class="h1_container margin_10">
             <div class="line"></div>
-            <h1 class="mykoga_section_h1"></h1>
-            <div class="line"></div>
+            <h1 class="section_h1" id="mykoga_section_h1"></h1>
+
         </div>
 
         <div class="mykoga_container margin_10">
@@ -160,7 +159,7 @@
     function visIndhold() {
 
         document.querySelector("#bg_video").src = content[0].background_video.guid;
-        document.querySelector(".swiping_images_h1").textContent = content[0].video_headline;
+        document.querySelector("#swiping_section_h1").textContent = content[0].video_headline;
         document.querySelectorAll(".swipe_img").forEach((img, i) => {
             img.src = content[0]["slider_billede" + (i + 1)].guid;
             img.alt = content[0]["slider_billede" + (i + 1)].post_title;
@@ -170,7 +169,7 @@
             headline.textContent = content[0]["slider_billede" + (i + 1)].post_title;
         })
 
-        document.querySelector(".bike_section_h1").textContent = content[0].modeller_overskrift;
+        document.querySelector("#bike_section_h1").textContent = content[0].modeller_overskrift;
 
 
         document.querySelectorAll(".model_image").forEach((img, i) => {
@@ -183,7 +182,7 @@
         })
         // Mig og min Koga section indhold initieres
         //Der startes med section overskrift
-        document.querySelector(".mykoga_section_h1").textContent = content[0].minkoga_overskrift;
+        document.querySelector("#mykoga_section_h1").textContent = content[0].minkoga_overskrift;
 
         document.querySelectorAll(".mykoga_headline").forEach((headline, i) => {
             headline.textContent = content[0]["minkoga_overskrift" + (i + 1)];

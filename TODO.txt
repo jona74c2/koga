@@ -9,7 +9,6 @@ hover på cykler skal ændres
 
 
 
-Footeren med maps
-Sti og menu dropdown
+maps i footeren
 Mobile og måske derimellem
 

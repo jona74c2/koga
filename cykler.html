@@ -38,20 +38,27 @@
     <hr>
     <div class="ia_links margin_10">
         <a href="kogacenter.html">Kogacenter</a>
-        &#x25B8
+        &#x25B8;
         <a href="cykler.html">Cykler</a>
     </div>
     <template>
         <article class="cykel">
-            <div class="cykel_bgcolor">
-                <h3 class="backText"></h3>
-                <p class="cykler_p"></p>
-                <a class="model_women"></a>
-                <a class="model_men"></a>
-                <img class="cykler_backimage" src="" alt="">
-                <img class="cykler_image" src="" alt="">
-                <h2 class="cykler_h2"></h2>
 
+
+
+            <div class="cykel_bgcolor">
+                <div class="cykel_bgimage">
+                    <img class="hidden_image" src="" alt="" style="visibility: hidden;" />
+
+                    <!--<img class="cykler_image" src="" alt="">-->
+                    <div class="backtext_container">
+                        <div class="backtext_background"></div>
+                        <h3 class="price"></h3>
+                        <p class="cykler_p"></p>
+                    </div>
+                    <h2 class="cykler_h2"></h2>
+
+                </div>
             </div>
         </article>
     </template>
@@ -59,6 +66,7 @@
     <main id="bikes_overview">
         <section id="liste"></section>
     </main>
+    <footer></footer>
 
     <script>
         let cycles = [];
@@ -74,6 +82,7 @@
         function start() {
             getJson();
             getMenu();
+            getFooter();
             //Her laves et tjek om der er noget med i urlen. Hvis der er, så kaldes filter på den modeltype fra start
             if (id != null) {
                 filterButtons.forEach(knap => {
@@ -102,6 +111,12 @@
             document.querySelector(".main_menu").innerHTML = fetchedNav;
         }
 
+        async function getFooter() {
+            const thisFooter = await fetch("footer.html");
+            let fetchedFooter = await thisFooter.text();
+            document.querySelector("footer").innerHTML = fetchedFooter;
+        }
+
         filterButtons.forEach(knap => knap.addEventListener("click", function() {
             filter(this);
         }));
@@ -127,12 +142,7 @@
 
                     const clone = document.querySelector("template").cloneNode(true).content;
 
-                    clone.querySelector(".backText").textContent = bike.pris;
-                    clone.querySelector(".model_women").textContent = "Damecykel";
-                    clone.querySelector(".model_men").textContent = "Herrecykel"
-                    "Damecykel";
-
-                    clone.querySelector(".cykler_backimage").src = bike.oplevelsesbillede.guid;
+                    clone.querySelector(".price").textContent = bike.pris;
 
                     //This is a try to go through different imagessizes to find the correct one. It needs to make a call for each try to check if the current imageadress is legit
 
@@ -156,8 +166,9 @@
                     /*clone.querySelector(".cykler_image").src = bike.billede_hele_cyklen_1.guid.substring(0, bike.billede_hele_cyklen_1.guid.length - 4) + "-300x200" + bike.billede_hele_cyklen_1.guid.substring(bike.billede_hele_cyklen_1.guid.length - 4, bike.billede_hele_cyklen_1.guid.length + 1);*/
 
                     // This code set all images on the cykler page to the correct image but each image is about 10mp, which decreases loading speed a lot! Like a lot a lot
-                    clone.querySelector(".cykler_image").src = bike.billede_hele_cyklen_1.guid;
-
+                    clone.querySelector(".cykel_bgimage").style.backgroundImage = `url(${bike.billede_hele_cyklen_1.guid})`;
+                    clone.querySelector(".hidden_image").src = bike.billede_hele_cyklen_1.guid;
+                    console.log(clone.querySelector(".cykel_bgimage").backgroundImage);
                     clone.querySelector("h2").textContent = bike.title.rendered;
                     clone.querySelector("p").innerHTML = bike.kort_beskrivelse;
                     document.querySelector("section").appendChild(clone);
@@ -168,5 +179,8 @@
                 }
             })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

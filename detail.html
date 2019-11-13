@@ -73,7 +73,10 @@
                 </template>
 
             </div>
+            <!-- Footeren ville ikke lægge sig nederst på siden. Det vidste sig at sectionen var kortere end article, så derfor kom footeren herind, for at ligge i bunden -->
+            <footer></footer>
         </article>
+
     </section>
 
 </body>
@@ -100,6 +103,7 @@
 
     async function getJson() {
         getMenu();
+        getFooter();
         const url = `http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/cykel/${id}`;
         let myJson = await fetch(url);
         bike = await myJson.json();
@@ -109,9 +113,16 @@
     }
 
     async function getMenu() {
+
         const thisNav = await fetch("mainnavigation.html");
         let fetchedNav = await thisNav.text();
         document.querySelector(".main_menu").innerHTML = fetchedNav;
+    }
+
+    async function getFooter() {
+        const thisFooter = await fetch("footer.html");
+        let fetchedFooter = await thisFooter.text();
+        document.querySelector("footer").innerHTML = fetchedFooter;
     }
 
     function showContent() {

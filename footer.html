@@ -1,0 +1,53 @@
+<!-- example taken from https://developers.google.com/maps/documentation/javascript/adding-a-google-map -->
+
+
+<body>
+    <section id="footer">
+        <div id="footer_container" class="margin_10">
+            <!--The div element for the map -->
+            <div id="map"></div>
+            <div class="col ">
+                <p>Vores aresse:<br>Peter Bangsvej 18<br>2000 Frederiksberg</p>
+            </div>
+            <div class="col">
+                <p>Åbningstider:<br>Man-Fre &emsp;11.00 - 18.00<br>Lør&emsp; &emsp; &emsp;09.00 - 14.00</p>
+            </div>
+            <div id="col_some" class="col">
+                <a href="https://www.facebook.com/kogacenter/"><img src="img/facebook_icon.jpg" alt=""></a>
+                <a href="https://twitter.com/kogacenter?lang=da"><img src="img/twitter_icon.jpg" alt=""></a>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = {
+                lat: 55.679221,
+                lng: 12.516973
+            };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), {
+                    zoom: 15,
+                    center: uluru
+                });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: "Koga Center",
+                label: "Koga Center"
+            });
+            marker.setMap(map);
+        }
+
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNprMMAj9jNwlesc9LI3RDHEphN5T-L_U&callback=initMap">
+    </script>
+</body>

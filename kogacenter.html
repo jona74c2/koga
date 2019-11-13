@@ -120,10 +120,10 @@
             </div>
         </div>
     </section>
+    <footer>
 
-</body>
-
-</html>
+    </footer>
+</body></html>
 
 <script>
     document.addEventListener("DOMContentLoaded", start);
@@ -139,6 +139,7 @@
         getJson();
         setDots();
         setBlueDot(imgCounter);
+        getFooter();
     }
 
     async function getJson() {
@@ -154,6 +155,12 @@
         const thisNav = await fetch("mainnavigation.html");
         let fetchedNav = await thisNav.text();
         document.querySelector(".main_menu").innerHTML = fetchedNav;
+    }
+
+    async function getFooter() {
+        const thisFooter = await fetch("footer.html");
+        let fetchedFooter = await thisFooter.text();
+        document.querySelector("footer").innerHTML = fetchedFooter;
     }
 
     function visIndhold() {

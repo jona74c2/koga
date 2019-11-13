@@ -376,7 +376,7 @@ p {
 }
 
 #bikes_overview {
-    margin-bottom: 200px;
+    margin-bottom: 100px;
 }
 
 #liste {
@@ -387,14 +387,27 @@ p {
     margin: 0 10%;
 }
 
+.cykel_bgimage {
+    width: auto;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+/*
 .cykler_image {
     background-color: var(--secondary-bg-color);
 }
 
-.cykler_image:hover {
-    opacity: 0;
-    cursor: pointer;
+.cykler_image:hover .backtext_container {
+    display: block;
 }
+
+
+.cykler_image:hover {
+    cursor: pointer;
+}*/
 
 .menu {
     margin-top: 30px;
@@ -407,46 +420,40 @@ p {
     color: var(--main-bg-color);
 }
 
-.backText {
-    position: absolute;
-    margin-top: 5%;
-    margin-left: 1%;
-    z-index: -1;
+.cykel:hover .backtext_container {
+    display: block;
+}
+
+.cykel:hover {
+    cursor: pointer;
+}
+
+.cykel_bgcolor {
+    background-color: var(--secondary-bg-color);
+}
+
+.backtext_container {
+    text-align: center;
+    width: calc(100% - 40px);
+    margin-top: -90px;
+    padding: 0 20px;
+    padding-top: 10px;
+
+    height: 80px;
+    background-color: hsla(0, 0%, 0%, 0.57);
+    display: none;
+}
+
+.price {
     color: var(--main-bg-color);
-
-}
-
-.model_women,
-.model_men {
-    position: absolute;
-    z-index: -1;
-    margin: 1%;
-    color: var(--main-bg-color);
-}
-
-.model_men {
-    margin-top: 2.5%;
-}
-
-.cykler_backimage {
-    position: absolute;
-    width: 17.8%;
-    z-index: -2;
-}
-
-.cykler_h2 {
-
-    margin-top: -5%;
-    margin-left: 2%;
+    padding: 0;
+    margin: 0;
 }
 
 .cykler_p {
-    position: absolute;
-    margin-left: 0.5%;
-    margin-top: 8%;
-    z-index: -1;
-
-    width: 18%;
+    color: var(--main-bg-color);
+    padding: 0;
+    margin: 0;
 }
 
 hr {
@@ -459,6 +466,42 @@ hr {
 
 img {
     width: 100%;
+}
+
+/* Footer */
+/* Css rules */
+
+#footer {
+    display: flex;
+    background-color: var(--tertiary-bg-color);
+    justify-content: center;
+}
+
+#footer_container {
+    display: flex;
+}
+
+#footer .col {
+    padding: 25px 0px;
+    width: 220px;
+}
+
+#col_some {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.col img {
+    width: 20%;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 140px;
+    /* The height is 400 pixels */
+    width: 200px;
+    /* The width is the width of the web page */
 }
 
 /* Media Qeuries */

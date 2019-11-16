@@ -87,37 +87,44 @@
         </div>
     </section>
 
-    <section id="mykoga">
+    <section id="mykoga_frontpage">
         <!-- this h1 section needs fixing. Make a line and put the h1 on top with background white. Should fix all -->
         <div class="h1_container margin_10">
             <div class="line"></div>
             <h1 class="section_h1" id="mykoga_section_h1"></h1>
 
         </div>
+        <a href="migogminkoga.html">
+            <div class="mykoga_container margin_10">
 
-        <div class="mykoga_container margin_10">
-
-            <h2 class="mykoga_headline"></h2>
-            <p class="mykoga_text"></p>
-            <div id="top_container"></div>
-            <!--<img class="mykoga_img" src="" alt="">-->
-        </div>
+                <h2 class="mykoga_headline"></h2>
+                <p class="mykoga_text"></p>
+                <div id="top_container"></div>
+                <!--<img class="mykoga_img" src="" alt="">-->
+            </div>
+        </a>
         <div class="mykoga_stories_container margin_10">
-            <div id="left_container" class="mykoga_container">
-                <h2 class="mykoga_headline"></h2>
-                <p class="mykoga_text"></p>
-                <img class="mykoga_img" src="" alt="">
-            </div>
-            <div class="mykoga_container">
-                <h2 class="mykoga_headline"></h2>
-                <p class="mykoga_text"></p>
-                <img class="mykoga_img" src="" alt="">
-            </div>
-            <div class="mykoga_container">
-                <h2 class="mykoga_headline"></h2>
-                <p class="mykoga_text"></p>
-                <img class="mykoga_img" src="" alt="">
-            </div>
+            <a href="migogminkoga.html">
+                <div id="left_container" class="mykoga_frontpage_container">
+                    <h2 class="mykoga_headline"></h2>
+                    <p class="mykoga_text"></p>
+                    <img class="mykoga_img" src="" alt="">
+                </div>
+            </a>
+            <a href="migogminkoga.html">
+                <div class="mykoga_frontpage_container">
+                    <h2 class="mykoga_headline"></h2>
+                    <p class="mykoga_text"></p>
+                    <img class="mykoga_img" src="" alt="">
+                </div>
+            </a>
+            <a href="migogminkoga.html">
+                <div class="mykoga_frontpage_container">
+                    <h2 class="mykoga_headline"></h2>
+                    <p class="mykoga_text"></p>
+                    <img class="mykoga_img" src="" alt="">
+                </div>
+            </a>
         </div>
     </section>
     <footer>
@@ -127,6 +134,8 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", start);
+
+    //document.querySelector("left_container").addEventListener("click", openNScroll);
 
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");

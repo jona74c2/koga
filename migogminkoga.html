@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+    <nav class="main_menu">
+
+    </nav>
+    <section id="mykoga">
+        <div class="h1_container margin_10">
+            <div class="line"></div>
+            <h1 class="section_h1"></h1>
+        </div>
+        <div class="mykoga margin_10">
+
+
+            <div class="col">
+                <div class="mykoga_container">
+                    <h2></h2>
+                    <div class="line"></div>
+                    <img class="top_image" src="" alt="">
+                    <div class="line"></div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="line"></div>
+                    <img class="bottum_image" src="" alt="">
+                    <div class="line"></div>
+                </div>
+
+                <div class="mykoga_container big_space">
+                    <h2></h2>
+                    <div class="line"></div>
+                    <img class="top_image" src="" alt="">
+                    <div class="line"></div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="line"></div>
+                    <img class="bottum_image" src="" alt="">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="small_col">
+                <div class="vertical_line"></div>
+            </div>
+
+            <div class="col big_space">
+
+                <div class="mykoga_container big_space">
+                    <h2></h2>
+                    <div class="line"></div>
+                    <img class="top_image" src="" alt="">
+                    <div class="line"></div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="line"></div>
+                    <img class="bottum_image" src="" alt="">
+                    <div class="line"></div>
+                </div>
+
+                <div class="mykoga_container big_space">
+                    <h2></h2>
+                    <div class="line"></div>
+                    <img class="top_image" src="" alt="">
+                    <div class="line"></div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="line"></div>
+                    <img class="bottum_image" src="" alt="">
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", start);
+
+    let content = [];
+
+    function start() {
+        getJson();
+
+    }
+
+    async function getJson() {
+        getMenu();
+        getFooter();
+        const url = `http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-json/wp/v2/migogminkoga`;
+        let myJson = await fetch(url);
+        content = await myJson.json();
+
+        showContent();
+    }
+
+    async function getMenu() {
+
+        const thisNav = await fetch("mainnavigation.html");
+        let fetchedNav = await thisNav.text();
+        document.querySelector(".main_menu").innerHTML = fetchedNav;
+    }
+
+    async function getFooter() {
+        const thisFooter = await fetch("footer.html");
+        let fetchedFooter = await thisFooter.text();
+        document.querySelector("footer").innerHTML = fetchedFooter;
+    }
+
+    function showContent() {
+        console.log(content)
+
+        document.querySelector(".section_h1").textContent = content[0].title.rendered;
+
+        document.querySelectorAll(".mykoga_container").forEach((ele, i) => {
+            console.log("element: " + ele);
+            ele.querySelector("h2").textContent = content[0]["subheadline_top" + (i + 1)];
+            ele.querySelector(".top_image").src = content[0]["top_image" + (i + 1)].guid;
+            ele.querySelector("h3").textContent = content[0]["subheadline_middle" + (i + 1)];
+
+
+            ele.querySelector("p").textContent = content[0]["paragraph" + (i + 1)];
+
+            ele.querySelector(".bottum_image").src = content[0]["bottum_image" + (i + 1)].guid;
+
+        })
+
+    }
+
+</script>

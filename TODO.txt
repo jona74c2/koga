@@ -1,12 +1,25 @@
-﻿(auto swipe på forsiden)
+﻿auto swipe på forsiden (se eksempel)
+Få mig og min koga fra forsiden til at scrolle ned til valgte
 
-mig og min koga page
 kontakt page
+Hvorfor kogacenter page
 
 detail img med skrift
 
-Mobile og måske derimellem
+Mobile og måske derimellem samt burgermenu
+
+Tekst på videoer
+Manuel på detail
+Pile på koga center sektion
+
 
 Problemer:
 Maps i footer
 Hover position på cykler
+
+Quick fix:
+Fjern weight
+Pris og gear på detail
+
+Evt:
+Klik på video for at scrolle til bunden af den

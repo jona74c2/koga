@@ -1,5 +1,4 @@
-﻿auto swipe på forsiden (se eksempel)
-Få mig og min koga fra forsiden til at scrolle ned til valgte
+﻿Få mig og min koga fra forsiden til at scrolle ned til valgte
 
 kontakt page
 Hvorfor kogacenter page
@@ -17,9 +16,12 @@ Problemer:
 Maps i footer
 Hover position på cykler
 
+
 Quick fix:
-Fjern weight
-Pris og gear på detail
+
+
+
 
 Evt:
 Klik på video for at scrolle til bunden af den
+auto swipe på forsiden (se eksempel)

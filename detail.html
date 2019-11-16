@@ -47,8 +47,10 @@
                     <p class="info"></p>
                     <div class="col_container">
                         <div class="col">
-                            <h5 class="price"></h5>
+                            <h5 class="price_detail"></h5>
                             <h5 class="weight"></h5>
+                            <h5 class="size"></h5>
+                            <h5 class="color"></h5>
                             <!--<h5 class="gear"></h5>-->
 
 
@@ -164,8 +166,10 @@
         document.querySelector("#current_bike").href = "detail.html?id=" + id;
         document.querySelector("#detail h2").textContent = bike.title.rendered;
         document.querySelector("#detail p").innerHTML = bike.kort_beskrivelse;
-        document.querySelector(".price").textContent = "Pris: " + bike.pris;
+        document.querySelector(".price_detail").textContent = "Pris: " + bike.pris;
         document.querySelector(".weight").textContent = "Vægt: " + bike.vaegt;
+        document.querySelector(".size").textContent = "Størrelser: " + bike.storrelser;
+        document.querySelector(".color").textContent = "Farve: " + bike.farvekombination;
 
         //Da der ikke findes oplevelsesbilleder til alle modellerne, så skal koden tage højde for at de måske mangler. Dette gøres med en if statement, der tjekker om billedet og titlen ikke er tomme
         if (bike.oplevelsesbillede.post_title != "") {

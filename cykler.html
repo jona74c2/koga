@@ -21,18 +21,22 @@
         <source src="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_race.mp4" type="video/mp4">
     </video>
 
+    <h2 id="category_headline" class="margin_10"></h2>
+    <p id="category_text" class="margin_10"></p>
+
     <nav class="menu">
 
         <div class="menu_mob">
-            <button data-kategori="alle" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_race.mp4" class="valgt">Alle</button>
+            <button data-kategori="alle" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_race.mp4" data-headline="
+            TOP PERFORMANCE" data-text="For those that compete for gold medals, or simply just heading home from the supermarket with a big smile and two full shopping bags. Whatever level of performance you want, we make the bike that fits it perfectly. We bet you will soon be whistling as you sit on your Koga?" class="valgt">Alle</button>
 
-            <button data-kategori="Bycykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_trekking.mp4">Bycykler</button>
+            <button data-kategori="Bycykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_trekking.mp4" data-headline="LIGHT & SPORTIVE" data-text="Light, sporty and luxuriously finished with finesse. There is a reason why Koga is recognised as the expert in recreational touring bikes. A KOGA Touring bicycle guarantees optimal riding pleasure. Their fabulous characteristics and solid quality make every bicycle ride a special experience.">Bycykler</button>
 
-            <button data-kategori="Elcykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_elcykel.mp4">Elcykler</button>
+            <button data-kategori="Elcykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_elcykel.mp4" data-headline="ACTIVE RELAXATION" data-text="An E-Bike is an electric bike with pedal assistance. The assistance is only activated when the bikes pedals rotate. E-Bikes are available for all ages and for a variety of purposes, from touring to the daily commute to work. With an E-Bike you can move effortlessly and in style.">Elcykler</button>
 
-            <button data-kategori="Racercykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_race.mp4">Racercykler</button>
+            <button data-kategori="Racercykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_race.mp4" data-headline="THE WILL TO WIN" data-text="Developing top quality racing bicycles is embedded in Koga's DNA. Passion for cycling was the foundation in establishing the company in 1974, and is the unmistakable basis of its modern and advanced race collection to this day. Developed and built in the Netherlands, by and for cycling enthusiasts with attention to detail.">Racercykler</button>
 
-            <button data-kategori="Trekking" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_trekking.mp4">Trekking</button>
+            <button data-kategori="Trekking" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_trekking.mp4" data-headline="PURE ADVENTURE" data-text="Adventurous riders choose KOGA for a reason. KOGA Trekking bicycles represent proven reliability and perfect workmanship. A bicycle for the true aficionado who will only accept the very best. The distinguishing quality of the long distance models continue in their design, which have been rewarded with a number of design awards.">Trekking</button>
         </div>
     </nav>
     <hr>
@@ -126,6 +130,8 @@
             //filtersættes til teksten fra den knap der blev trykket på
             filterString = button.dataset.kategori;
             document.querySelector("#bg_video").src = button.dataset.video;
+            document.querySelector("#category_headline").textContent = button.dataset.headline;
+            document.querySelector("#category_text").textContent = button.dataset.text;
             //overskriften ændres til at sige hvordan der filtreres
             //document.querySelector(".overskrift_kategori").textContent = `${this.textContent} Cocktails`;
             //den highlightede knap flyttes til den nye aktive kategori

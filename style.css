@@ -13,6 +13,7 @@
         #fffbf4;
     --main-accent-color: #0E7DC7;
     --tertiary-bg-color: #ddd;
+    --main-text-color: black;
 
 }
 
@@ -31,7 +32,7 @@ button:hover {
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--main-text-color);
 }
 
 
@@ -98,7 +99,7 @@ li img {
 
 /* Dropdown menu er taget herfra: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover og tilpasset med ændringer */
 .dropbtn {
-    color: black;
+    color: var(--main-text-color);
     padding: 15px;
     padding-bottom: 10px;
     text-decoration: none;
@@ -120,7 +121,7 @@ li img {
 }
 
 .dropdown-content a {
-    color: black;
+    color: var(--main-text-color);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -162,6 +163,32 @@ p {
 
 /* Kogacenter CSS */
 
+
+#frontvideo_headline {
+    position: absolute;
+    margin-top: -160px;
+    color: var(--main-bg-color);
+}
+
+#frontvideo_img {
+    width: 150px;
+    position: absolute;
+    left: 0px;
+    margin-left: calc(15% - 170px);
+    /*top: 600px;
+*/
+    margin-top: calc(40vw - 190px);
+    border-radius: 50%;
+}
+
+#frontvideo_text {
+    position: absolute;
+    margin-top: -120px;
+    color: var(--main-bg-color);
+    margin-right: 50%;
+    line-height: 1.7;
+}
+
 .section_h1 {
     position: absolute;
     padding: 0 20px;
@@ -202,7 +229,7 @@ p {
 
 #bike_types a {
     margin: 7px;
-    color: black;
+    color: ;
     text-decoration: none;
 }
 
@@ -368,6 +395,19 @@ p {
     width: 100%;
 }
 
+#category_headline,
+#category_text {
+    position: absolute;
+    color: var(--main-bg-color);
+    margin-top: -200px;
+
+}
+
+#category_text {
+    margin-top: -160px;
+    line-height: 1.9;
+}
+
 .ia_links a {
     font-size: 13px;
     padding: 3px;
@@ -444,6 +484,12 @@ p {
     height: 80px;
     background-color: hsla(0, 0%, 0%, 0.57);
     display: none;
+}
+
+.price_detail {
+    color: var(--main-text-color);
+    padding: 0;
+    margin-bottom: 0;
 }
 
 .price {

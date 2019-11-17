@@ -2,7 +2,7 @@
     <li> <a class="logo" href="kogacenter.html"><img class="logo_img" src="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/KOGA-NEW-LOGO.png" alt=""></a></li>
 
     <!-- Dropdown exempel er taget herfra: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover -->
-    <li>
+    <li class="burger_item">
         <div class="dropdown">
             <a class="dropbtn menu_item" href="cykler.html">Cykler &#x25BE;</a>
             <div class="dropdown-content">
@@ -13,7 +13,7 @@
             </div>
         </div>
     </li>
-    <li>
+    <li class="burger_item">
         <div class="dropdown">
             <a class="dropbtn menu_item">Om os &#x25BE;</a>
             <div class="dropdown-content">
@@ -24,12 +24,31 @@
         </div>
     </li>
 
-    <li>
+    <li class="burger_item">
         <div class="menu_item_container">
             <a href="kontakt.html" class="menu_item">Kontakt</a>
         </div>
     </li>
 
+    <li class="burger_icon" onclick="myFunction()">
+        <burger_icon_container>
+            <img src="img/Hamburger_icon.png" alt="">
+        </burger_icon_container>
+    </li>
+
     <!--<li><a class="menu_item" href="cykler.html">Cykler</a></li>-->
     <!--<li><a class="menu_item" href="detail.html">Detajle</a></li>-->
 </ul>
+<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_mobile_navbar
+<script>
+    function myFunction() {
+        let x = document.querySelectorAll(".burger_item");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+
+</script>
+-->

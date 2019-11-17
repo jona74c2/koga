@@ -69,6 +69,7 @@
     <h1></h1>
     <main id="bikes_overview">
         <section id="liste"></section>
+
     </main>
     <footer></footer>
 
@@ -87,17 +88,23 @@
             getJson();
             getMenu();
             getFooter();
-            //Her laves et tjek om der er noget med i urlen. Hvis der er, så kaldes filter på den modeltype fra start
-            if (id != null) {
+
+            if (filterString == "alle") {
+
+                filter(document.querySelector("button"));
+            } else {
                 filterButtons.forEach(knap => {
                     if (knap.dataset.kategori == id) {
                         filter(knap);
                     }
+
                 })
-                /*filterString = id;
-                console.log("We here! " + filterString);
-                filter();*/
+
             }
+
+            /*filterString = id;
+            console.log("We here! " + filterString);
+            filter();*/
         }
 
         async function getJson() {

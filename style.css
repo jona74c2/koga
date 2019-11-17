@@ -647,6 +647,20 @@ p {
     #liste h2 {
         font-size: 18px;
     }
+
+    #frontvideo_headline {
+        margin-left: 25%;
+    }
+
+    #frontvideo_img {
+        margin-left: calc(15% - 120px);
+
+    }
+
+    #frontvideo_text {
+        margin-left: 25%;
+        width: 60%;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -686,12 +700,26 @@ p {
         grid-gap: 2%;
         grid-template-columns: repeat(5, 1fr);
         margin: 0 auto;
-        margin: 0 10%;
+        margin: 0;
         font-size: 10px;
+    }
+
+    #bikes_overview {
+        margin-bottom: 250px;
     }
 
     .menu_mob button {
         padding: 10px;
+    }
+
+    #category_text {
+        display: none;
+    }
+
+    #category_headline {
+        margin-top: -50px;
+        margin-left: 5%;
+        font-size: 18px;
     }
 
     .mykoga {
@@ -708,6 +736,28 @@ p {
 
     .cykel:hover {
         cursor: auto;
+    }
+
+    #frontvideo_headline {
+        position: relative;
+        margin-top: -50px;
+        margin-left: 50px;
+    }
+
+    #frontvideo_img {
+        width: 100px;
+        position: relative;
+        margin-left: 5%;
+        margin-top: 30px;
+
+    }
+
+    #frontvideo_text {
+        position: relative;
+        color: var(--main-text-color);
+        margin-left: 35%;
+        margin-right: 15%;
+        margin-top: -100px;
     }
 
 }
@@ -809,7 +859,25 @@ p {
 
 
 
+    #frontvideo_img {
+        width: 100px;
+        position: relative;
+        margin-left: 5%;
+        margin-top: 30px;
 
+    }
+
+    #frontvideo_text {
+        position: relative;
+        color: var(--main-text-color);
+        margin-left: 35%;
+        margin-right: 15%;
+        margin-top: -110px;
+    }
+
+    .headline_swipe {
+        margin-top: 20%;
+    }
 
 }
 

@@ -1,5 +1,4 @@
-﻿Få mig og min koga fra forsiden til at scrolle ned til valgte
-
+﻿
 kontakt page
 Hvorfor kogacenter page
 
@@ -7,21 +6,19 @@ detail img med skrift
 
 Mobile og måske derimellem samt burgermenu
 
-Tekst på videoer
 Manuel på detail
-Pile på koga center sektion
+Pile på koga center sektion + rework
 
 
 Problemer:
 Maps i footer
-Hover position på cykler
-
 
 Quick fix:
 
-
+3px rounded corners border-radius: 3px;
 
 
 Evt:
 Klik på video for at scrolle til bunden af den
 auto swipe på forsiden (se eksempel)
+Få mig og min koga fra forsiden til at scrolle ned til valgte

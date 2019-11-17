@@ -20,6 +20,12 @@
         <video id="bg_video" autoplay muted loop>
             <source src="" type="video/mp4">
         </video>
+
+
+
+        <h2 id="category_headline" class="margin_10"></h2>
+        <p id="category_text" class="margin_10"></p>
+
         <div class="whykoga_section margin_10">
             <div class="h1_container">
                 <div class="line"></div>
@@ -59,7 +65,9 @@
         </div>
     </section>
     <footer></footer>
-</body></html>
+</body>
+
+</html>
 
 <script>
     document.addEventListener("DOMContentLoaded", start);
@@ -98,21 +106,21 @@
         console.log(content)
 
         document.querySelector("#bg_video").src = content[0].bg_video.guid;
+        document.querySelector("#category_headline").textContent = content[0].video_headline;
+        document.querySelector("#category_text").textContent = content[0].video_text;
         document.querySelector(".section_h1").textContent = content[0].title.rendered;
 
-        document.querySelectorAll(".whykoga_container").forEach((ele,i)=>{
-            console.log("element: "+ele);
-            ele.querySelector("h3").textContent = content[0]["subheadline"+(i+1)];
-            console.log("healine: "+content["subheadline"+(i+1)]);
+        document.querySelectorAll(".whykoga_container").forEach((ele, i) => {
+            console.log("element: " + ele);
+            ele.querySelector("h3").textContent = content[0]["subheadline" + (i + 1)];
+            console.log("healine: " + content["subheadline" + (i + 1)]);
 
-            ele.querySelector("p").textContent = content[0]["paragraph"+(i+1)];
-            console.log("para: "+content["paragraph"+(i+1)]);
-            ele.querySelector("img").src = content[0]["image"+(i+1)].guid;
-            console.log("image: "+content[0]["image"+(i+1)]);
+            ele.querySelector("p").textContent = content[0]["paragraph" + (i + 1)];
+            console.log("para: " + content["paragraph" + (i + 1)]);
+            ele.querySelector("img").src = content[0]["image" + (i + 1)].guid;
+            console.log("image: " + content[0]["image" + (i + 1)]);
         })
 
     }
-
-
 
 </script>

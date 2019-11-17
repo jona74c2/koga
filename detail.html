@@ -21,8 +21,10 @@
 
             <div class="margin_10">
                 <div class="images_container">
+
                     <!--<img class="imageFront" src="" alt="">-->
                 </div>
+                <h2 class="detail_images_headline"></h2>
                 <div id="img_navigation_container">
                     <img class="left_arrow" src="img/arrow_left.svg" alt="">
 
@@ -43,7 +45,7 @@
                     <a id="current_bike" href=""></a>
                 </div>
                 <div id="bikeinfo_short">
-                    <h2></h2>
+                    <h2 class="detail_bikeinfo_headline"></h2>
                     <p class="info"></p>
                     <div class="col_container">
                         <div class="col">
@@ -164,7 +166,7 @@
 
         document.querySelector("#current_bike").textContent = bike.title.rendered;
         document.querySelector("#current_bike").href = "detail.html?id=" + id;
-        document.querySelector("#detail h2").textContent = bike.title.rendered;
+        document.querySelector(".detail_bikeinfo_headline").textContent = bike.title.rendered;
         document.querySelector("#detail p").innerHTML = bike.kort_beskrivelse;
         document.querySelector(".price_detail").textContent = "Pris: " + bike.pris;
         document.querySelector(".weight").textContent = "Vægt: " + bike.vaegt;
@@ -235,7 +237,14 @@
         if (imgCounter < 0) {
             imgCounter = imageArray.length - 1;
         }
+
         document.querySelector(".images_container").style.backgroundImage = `url(${imageArray[imgCounter]})`;
+        if (imgCounter > 2) {
+            document.querySelector(".detail_images_headline").textContent = bike["naerbillede" + (imgCounter - 2)].post_title;
+        } else {
+            document.querySelector(".detail_images_headline").textContent = "";
+        }
+
         setBlueDot();
     }
 

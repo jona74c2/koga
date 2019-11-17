@@ -1,6 +1,6 @@
 ﻿detail img med skrift
 
-Mobile og måske derimellem samt burgermenu
+Burgermenu
 
 Manual på detail
 Pile på koga center sektion + rework

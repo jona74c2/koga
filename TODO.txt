@@ -1,15 +1,9 @@
-﻿kontakt page
-
-detail img med skrift
+﻿detail img med skrift
 
 Mobile og måske derimellem samt burgermenu
 
-Manuel på detail
+Manual på detail
 Pile på koga center sektion + rework
-
-
-Problemer:
-Maps i footer
 
 Quick fix:
 3px rounded corners border-radius: 3px;

@@ -7,10 +7,9 @@
 
 :root {
     --main-bg-color: white;
-    --secondary-bg-color:
-        /*antiquewhite*/
-        /*#FFF9ED*/
-        #fffbf4;
+    --secondary-bg-color: #fffbf4;
+    /*antiquewhite*/
+    /*#FFF9ED*/
     --main-accent-color: #0E7DC7;
     --tertiary-bg-color: #ddd;
     --main-text-color: black;
@@ -65,44 +64,39 @@ body {
 ul {
     padding: 0;
     margin: 0;
-    margin-bottom: -5px;
+    margin-bottom: -6px;
 
     display: flex;
 }
 
 li {
     display: inline-block;
-    margin-top: 32px;
-    width: 200px;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+
+
 }
 
 li img {
-    margin-top: -32px;
-    width: 62%;
+    margin-top: -10px;
+    margin-bottom: -16px;
+    width: 140px;
 }
 
-.main_menu {}
+
+
+/* Dropdown menu er taget herfra: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover og tilpasset med ændringer */
 
 .menu_item {
-
     text-decoration: none;
-
-    margin-top: 22px;
-    padding-top: 10px;
-    height: auto;
+    padding: 15px;
+    color: var(--main-text-color);
 }
 
 .menu_item:hover {
     color: var(--main-bg-color);
     background-color: var(--main-accent-color);
-}
-
-/* Dropdown menu er taget herfra: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover og tilpasset med ændringer */
-.dropbtn {
-    color: var(--main-text-color);
-    padding: 15px;
-    padding-bottom: 10px;
-    text-decoration: none;
 }
 
 .dropdown {
@@ -115,7 +109,8 @@ li img {
     position: absolute;
     background-color: var(--secondary-bg-color);
     min-width: 140px;
-    margin-top: 9px;
+    margin-top: 15px;
+    margin-left: -15px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -136,11 +131,6 @@ li img {
     display: block;
 }
 
-
-.dropbtn:hover {
-    color: var(--main-bg-color);
-}
-
 /* Text-styling/fonts */
 
 h1 {
@@ -151,7 +141,7 @@ h1 {
 
 h2 {
     font-family: 'PT Sans', sans-serif;
-    font-weight: 1000;
+    font-weight: 600;
 }
 
 p {
@@ -229,7 +219,6 @@ p {
 
 #bike_types a {
     margin: 7px;
-    color: ;
     text-decoration: none;
 }
 
@@ -302,7 +291,6 @@ p {
 
 .mykoga_headline {
     margin-top: 140px;
-    background-color: none;
     z-index: 2;
 }
 
@@ -406,6 +394,7 @@ p {
 #category_text {
     margin-top: -160px;
     line-height: 1.9;
+    width: 40%;
 }
 
 .ia_links a {
@@ -454,7 +443,7 @@ p {
 .menu {
     margin-top: 30px;
     text-align: center;
-    width: 100wv;
+    width: 100vw;
 }
 
 .valgt {
@@ -566,6 +555,7 @@ p {
     background-color: var(--tertiary-bg-color);
 }
 
+
 /* Footer */
 /* Css rules */
 
@@ -598,10 +588,16 @@ p {
 
 /* Set the size of the div element that contains the map */
 #map {
-    height: 140px;
+    height: 400px;
     /* The height is 400 pixels */
-    width: 200px;
+    width: 800px;
     /* The width is the width of the web page */
+
+}
+
+#map_container {
+    display: flex;
+    justify-content: center;
 }
 
 /* Hvorfor Koga */
@@ -629,6 +625,44 @@ p {
 .whykoga_section p {
     line-height: 1.9;
 }
+
+
+/*Hvorfor Koga Center */
+/* CSS Rules */
+
+#splash_whykogacenter {
+    width: 70%;
+
+}
+
+#headline_offers {
+    padding-left: 40px;
+}
+
+#whykogacenter ul {
+    display: block;
+    margin-left: 8%;
+    margin-bottom: 30px;
+}
+
+#whykogacenter li {
+    display: block;
+    margin: 14px;
+    width: 50%;
+}
+
+.whykogacenter_imgcontainer {
+    display: grid;
+    grid-gap: 2%;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 20px;
+}
+
+#whykogacenter .col img {
+    margin-top: 20px;
+}
+
+
 
 /* Media Qeuries */
 
@@ -659,7 +693,11 @@ p {
 
     #frontvideo_text {
         margin-left: 25%;
-        width: 60%;
+        width: 40%;
+    }
+
+    #category_text {
+        width: 50%;
     }
 }
 
@@ -677,6 +715,11 @@ p {
 
     #liste h2 {
         font-size: 15px;
+    }
+
+    #map {
+        width: 600px;
+        height: 300px;
     }
 }
 
@@ -738,6 +781,10 @@ p {
         cursor: auto;
     }
 
+    .whykoga_container {
+        flex-direction: column;
+    }
+
     #frontvideo_headline {
         position: relative;
         margin-top: -50px;
@@ -758,6 +805,7 @@ p {
         margin-left: 35%;
         margin-right: 15%;
         margin-top: -100px;
+        width: 50%;
     }
 
 }
@@ -818,9 +866,7 @@ p {
 
 
 
-    .whykoga_container {
-        flex-direction: column;
-    }
+
 
     .margin_10 {
         margin: 0;
@@ -877,6 +923,12 @@ p {
 
     .headline_swipe {
         margin-top: 20%;
+    }
+
+    #map {
+        width: 350px;
+        height: 200px;
+        margin-top: 1px;
     }
 
 }

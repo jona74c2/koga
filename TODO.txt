@@ -1,6 +1,4 @@
-﻿
-kontakt page
-Hvorfor kogacenter page
+﻿kontakt page
 
 detail img med skrift
 
@@ -14,9 +12,10 @@ Problemer:
 Maps i footer
 
 Quick fix:
-
 3px rounded corners border-radius: 3px;
 
+Ikke kode:
+Lav wordpressvideo
 
 Evt:
 Klik på video for at scrolle til bunden af den

@@ -826,6 +826,10 @@ p {
         cursor: auto;
     }
 
+    .dropdown {
+        width: 140px;
+    }
+
     .dropdown-content {
         display: none;
     }
@@ -836,6 +840,8 @@ p {
     }
 
     .burger_item {
+        margin: 0;
+        margin-bottom: 16px;
         margin-top: 20px;
         text-align: center;
     }
@@ -843,20 +849,22 @@ p {
     .dropdown-content {
         display: none;
         position: relative;
-        text-align: end;
+        text-align: center;
         background-color: var(--main-bg-color);
         width: 70%;
         margin-top: 9px;
-        margin-left: 120px;
+        margin-left: 0px;
+        margin-right: 0px;
         box-shadow: none;
     }
 
     .dropdown-content a {
         border-bottom: 1px solid var(--tertiary-bg-color);
+        font-size: 12px;
     }
 
     #menu_item_contact {
-        margin-bottom: 250px;
+        margin-bottom: 25px;
     }
 
     .whykoga_container {

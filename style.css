@@ -38,7 +38,7 @@ a {
 body {
     margin: 0;
     background: var(--main-bg-color);
-    font-family: "helvetica";
+    font-family: 'Duru Sans', sans-serif;
 }
 
 .hide {
@@ -142,12 +142,11 @@ h1 {
 
 h2 {
     font-family: 'PT Sans', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 p {
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 /* New HTML Document */
@@ -804,6 +803,20 @@ p {
     }
 
     .cykel:hover .backtext_container {
+        display: none;
+    }
+
+    .menu_item:hover {
+        color: var(--main-text-color);
+        background-color: var(--main-bg-color);
+    }
+
+    .dropdown-content a:hover {
+        background-color: var(--main-accent-color);
+        color: var(--main-bg-color);
+    }
+
+    .dropdown:hover .dropdown-content {
         display: none;
     }
 

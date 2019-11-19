@@ -1,9 +1,9 @@
-﻿detail img med skrift
-
-Burgermenu
+﻿Burgermenu
 
 Manual på detail
 Pile på koga center sektion + rework
+
+Kig på billedstørrelser igen
 
 Quick fix:
 3px rounded corners border-radius: 3px;

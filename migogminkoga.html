@@ -108,6 +108,17 @@
         const thisNav = await fetch("mainnavigation.html");
         let fetchedNav = await thisNav.text();
         document.querySelector(".main_menu").innerHTML = fetchedNav;
+
+        document.querySelector(".burger_icon").addEventListener("click", function() {
+            displayListItems(".burger_item");
+        });
+
+        document.querySelector("#list_item_bikes").addEventListener("click", function() {
+            displayListItems("#dropdown-content1");
+        });
+        document.querySelector("#dropbtn2").addEventListener("click", function() {
+            displayListItems("#dropdown-content2");
+        });
     }
 
     async function getFooter() {
@@ -132,6 +143,26 @@
 
             ele.querySelector(".bottum_image").src = content[0]["bottum_image" + (i + 1)].guid;
 
+        })
+
+    }
+
+    function displayItem(s) {
+        let x = document.querySelectorAll(`${s}`);
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+
+    function displayListItems(s) {
+        document.querySelectorAll(`${s}`).forEach((x, i) => {
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
         })
 
     }

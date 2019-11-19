@@ -746,10 +746,12 @@ p {
     .burger_icon {
         display: inline-block;
         position: absolute;
-        left: 90%;
+        left: 89%;
     }
 
     .burger_icon img {
+        margin-top: -15px;
+        margin-bottom: 0;
         width: 30px;
     }
 
@@ -824,6 +826,39 @@ p {
         cursor: auto;
     }
 
+    .dropdown-content {
+        display: none;
+    }
+
+    #dropbtn1 {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .burger_item {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: relative;
+        text-align: end;
+        background-color: var(--main-bg-color);
+        width: 70%;
+        margin-top: 9px;
+        margin-left: 120px;
+        box-shadow: none;
+    }
+
+    .dropdown-content a {
+        border-bottom: 1px solid var(--tertiary-bg-color);
+    }
+
+    #menu_item_contact {
+        margin-bottom: 250px;
+    }
+
     .whykoga_container {
         flex-direction: column;
     }
@@ -849,6 +884,12 @@ p {
         margin-right: 15%;
         margin-top: -100px;
         width: 50%;
+    }
+
+    #models_container {
+        display: grid;
+        grid-gap: 1%;
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
@@ -915,17 +956,24 @@ p {
         margin: 0;
     }
 
+    #footer_container {
+        display: grid;
+    }
+
     #footer .col {
-        padding: 25px 0px;
-        width: 100px;
+        padding: 0;
+        margin: 0;
+        padding-right: 25px;
         font-size: 12px;
     }
 
     #footer #col_some {
         display: flex;
-        flex-direction: column;
-        margin-top: 30px;
-        width: 35px;
+        flex-direction: row;
+        width: 70px;
+        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 25px;
     }
 
     .big_space {
@@ -933,7 +981,7 @@ p {
     }
 
     hr {
-        margin-top: 20px;
+        margin-top: 8px;
         margin-bottom: 10px;
     }
 

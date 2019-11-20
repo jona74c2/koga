@@ -33,7 +33,7 @@
 
             <button data-kategori="Elcykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_elcykel.mp4" data-headline="Afslappende cykling" data-text="E-Bike er en elektrisk cykel med pedalhjælp. Hjælpen aktiveres kun, når cykelpedalerne drejer. E-cykler er tilgængelige for alle aldre og til forskellige formål, fra turné til den daglige pendling til arbejde. Med en E-Bike kan du bevæge dig ubesværet og med stil.">Elcykler</button>
 
-            <button data-kategori="Racercykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_race.mp4" data-headline="Viljen til at vinde" data-text="Racercykler i top kvalitet er indlejret i Kogas DNA. Lidenskab til cykling var grundlaget for etableringen af ​​virksomheden i 1974 og er et af de største grundlag for dens moderne og avancerede racersamling indtil i dag. Udviklet og bygget i Holland, af og for cykelentusiaster med sans for detaljer.">Racercykler</button>
+            <button data-kategori="Racercykel" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_race.mp4" data-headline="Viljen til at vinde" data-text="Racercykler i top kvalitet er indlejret i Kogas DNA. Lidenskab til cykling var grundlaget for etableringen af virksomheden i 1974 og er et af de største grundlag for dens moderne og avancerede racersamling indtil i dag. Udviklet og bygget i Holland, af og for cykelentusiaster med sans for detaljer.">Racercykler</button>
 
             <button data-kategori="Trekking" data-video="http://beansprout.dk/kea/2.semester/tema9/Koga/wordpress/wp-content/uploads/2019/11/koga_preview_trekking.mp4" data-headline="Til den eventyrlystne" data-text="Eventyrlystne ryttere vælger Koga af en grund. Koga Trekking cykler repræsenterer pålidelig og perfekt udførelse. En cykel til den ægte rytter, der kun vil acceptere den allerbedste cykel. Den særlige kvalitet på langdistance modellerne fortsætter i deres design, som er blevet belønnet med en række designpriser.">Trekking</button>
         </div>
@@ -74,6 +74,7 @@
 
     <script>
         let cycles = [];
+        let bool = true;
         const filterButtons = document.querySelectorAll("button");
         let filterString = "alle";
         document.addEventListener("DOMContentLoaded", start);
@@ -87,6 +88,11 @@
             getJson();
             getMenu();
             getFooter();
+            if (bool && id != null) {
+                console.log("Bool Bool ID ID: " + id);
+                filterString = id;
+                bool = false;
+            }
 
             if (filterString == "alle") {
 
@@ -144,8 +150,11 @@
 
 
         function filter(button) {
+            console.log("filterbutton filterbutton: " + button);
+            console.log("button.dataset.kategori: " + button.dataset.kategori);
             //filtersættes til teksten fra den knap der blev trykket på
             filterString = button.dataset.kategori;
+            console.log("filterstring: " + filterString);
             document.querySelector("#bg_video").src = button.dataset.video;
             document.querySelector("#category_headline").textContent = button.dataset.headline;
             document.querySelector("#category_text").textContent = button.dataset.text;
@@ -223,6 +232,4 @@
 
         }
     </script>
-</body>
-
-</html>
+</body></html>

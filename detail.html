@@ -67,7 +67,7 @@
 
 
             <div class="margin_10" id="bullets">
-                <h3>Yderligere Specifikationer</h3>
+                <h3 id="more_specs">Yderligere Specifikationer</h3>
                 <section id="bullet_section"></section>
                 <template class="bullet_template">
                     <article>
@@ -184,8 +184,8 @@
         document.querySelector(".color").textContent = "Farve: " + bike.farvekombination;
 
         //Da der ikke findes oplevelsesbilleder til alle modellerne, så skal koden tage højde for at de måske mangler. Dette gøres med en if statement, der tjekker om billedet og titlen ikke er tomme
-        if (bike.oplevelsesbillede.post_title != "") {
-            document.querySelector(".long_description").textContent = bike.oplevelsesbillede.post_title;
+        if (bike.oplevelsesbillede.lang_beskrivelse != "") {
+            document.querySelector(".long_description").textContent = bike.lang_beskrivelse;
         }
         if (bike.oplevelsesbillede.guid != "") {
             document.querySelector(".adventure_img").src = bike.oplevelsesbillede.guid;

@@ -1,12 +1,10 @@
-﻿Burgermenu
+﻿Manual på detail
+Pile på koga center sektion
 
-Manual på detail
-Pile på koga center sektion + rework
+Kig på billedstørrelser igen for hvorfor koga
 
-Kig på billedstørrelser igen
 
-Quick fix:
-3px rounded corners border-radius: 3px;
+
 
 Ikke kode:
 Lav wordpressvideo

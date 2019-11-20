@@ -153,32 +153,6 @@ p {
 
 /* Kogacenter CSS */
 
-
-#frontvideo_headline {
-    position: absolute;
-    margin-top: -160px;
-    color: var(--main-bg-color);
-}
-
-#frontvideo_img {
-    width: 150px;
-    position: absolute;
-    left: 0px;
-    margin-left: calc(15% - 170px);
-    /*top: 600px;
-*/
-    margin-top: calc(40vw - 190px);
-    border-radius: 50%;
-}
-
-#frontvideo_text {
-    position: absolute;
-    margin-top: -120px;
-    color: var(--main-bg-color);
-    margin-right: 50%;
-    line-height: 1.7;
-}
-
 .section_h1 {
     position: absolute;
     padding: 0 20px;
@@ -197,6 +171,7 @@ p {
     margin-top: 25%;
     margin-left: 35%;
     transform: translateX(-50%);
+    text-align: center;
 }
 
 .swipe_img {
@@ -576,23 +551,27 @@ p {
     display: flex;
 }
 
-#footer .col {
-    padding: 25px 0px;
-    width: 180px;
-}
-
 #col_some {
     display: flex;
     flex-direction: column;
     width: 40px;
     margin: 0 25px;
-    margin-top: 30px;
+    margin-top: 10px;
 
 }
 
 #footer .col img {
     width: 50%;
 }
+
+#footer .col {
+    width: 180px;
+    padding: 0;
+    margin: 0;
+    padding-right: 25px;
+    font-size: 14px;
+}
+
 
 /* Set the size of the div element that contains the map */
 #map {
@@ -649,8 +628,9 @@ p {
 
 #whykogacenter ul {
     display: block;
-    margin-left: 8%;
+    margin-left: 40px;
     margin-bottom: 30px;
+    list-style-type: disc;
 }
 
 #whykogacenter li {
@@ -690,22 +670,12 @@ p {
         font-size: 18px;
     }
 
-    #frontvideo_headline {
-        margin-left: 25%;
-    }
-
-    #frontvideo_img {
-        margin-left: calc(15% - 120px);
-
-    }
-
-    #frontvideo_text {
-        margin-left: 25%;
-        width: 40%;
-    }
-
     #category_text {
         width: 50%;
+    }
+
+    .headline_swipe {
+        font-size: 16px;
     }
 }
 
@@ -910,12 +880,62 @@ p {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .headline_swipe {
+        font-size: 14px;
+    }
+
 }
 
 /* Mobile */
 
 @media screen and (max-width: 650px) {
 
+    p {
+        font-size: 12px;
+    }
+
+    .section_h1 {
+        font-size: 26px;
+    }
+
+    .detail_bikeinfo_headline {
+        margin-left: 20px;
+    }
+
+    .info {
+        margin-left: 30px;
+    }
+
+    .images_container {
+        height: 50vw;
+    }
+
+    .detail_images_headline {
+        font-size: 16px;
+        margin-top: -50px;
+        text-align: center;
+    }
+
+    .right_arrow,
+    .left_arrow {
+        width: 15px;
+        height: 30px;
+        margin: 0 40px;
+        padding: 10px;
+    }
+
+
+    #more_specs {
+        margin-left: 20px;
+    }
+
+    .col_container {
+        flex-direction: column;
+    }
+
+    #dot_section {
+        margin-top: 13px;
+    }
 
     /* Media Queries til cykler*/
     #liste {
@@ -934,6 +954,40 @@ p {
 
     }
 
+
+    .burger_icon {
+        left: 87%;
+    }
+
+    .whykogacenter_imgcontainer {
+        display: grid;
+
+        grid-template-columns: repeat(1, 1fr);
+        margin: 10px 15%;
+    }
+
+    #whykogacenter .list_item {
+        margin: 5px;
+        width: 82%;
+    }
+
+    .line {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    #swipeimages_container {
+        height: 45vw;
+
+    }
+
+    #top_container {
+        height: 350px;
+    }
+
     .backText {
         position: absolute;
         margin-top: 20%;
@@ -941,6 +995,10 @@ p {
         z-index: -1;
         color: var(--main-bg-color);
 
+    }
+
+    #splash_whykogacenter {
+        width: 100%;
     }
 
     .model_women,
@@ -979,6 +1037,7 @@ p {
     }
 
     #footer .col {
+        width: 100px;
         padding: 0;
         margin: 0;
         padding-right: 25px;
@@ -1030,15 +1089,20 @@ p {
         margin-top: -110px;
     }
 
-    .headline_swipe {
-        margin-top: 20%;
-    }
 
     #map {
         width: 350px;
         height: 200px;
         margin-top: 1px;
     }
+
+    .headline_swipe {
+        margin-top: 33%;
+        text-align: center;
+        margin-left: 50%;
+        width: 100%;
+    }
+
 
 }
 
